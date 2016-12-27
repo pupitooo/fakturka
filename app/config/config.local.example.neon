@@ -1,0 +1,55 @@
+doctrine:
+	host: localhost
+	user: user
+	password: pasword
+	dbname: dbname
+
+facebook:
+	appId: "app_id"
+	appSecret: "app_secret"
+
+twitter:
+	consumerKey: 'consumer_key'
+	consumerSecretKey: 'secret_key'
+
+installer:
+	lock: on # při TRUE zamyká instalaci po spuštění, pak je potřeba odmazat temp/install pro novou instalaci
+	doctrine: off # aktualizuje DB podle entit
+	initUsers: 
+		user_mail: ['password', 'name_of_role']
+#	adminer: off # instaluje potřebná nastavení pro adminer - na SERVERU je potřeba ověřit funkčnost (používá chmod)
+#	composer: off # spouští composer - NEPOUŽÍVAT na serveru (spouští shell_exec)
+
+nette:
+	mailer:
+		smtp: off # při FALSE využívá mail(); při TRUE je potřeba nastavit údaje
+#		host: smtp.gmail.com
+#		secure: ssl
+#		username: user@gmail.com
+#		password: heslo
+
+# Při zakomentování bloku nette:mailer: je možné využít MailPanel níže
+#nette:
+#	debugger:
+#		bar:
+#			- JanDrabek\MailPanel\MailPanel
+#services:
+#	nette.mailer: JanDrabek\MailPanel\SessionMailer
+
+settings:
+	modules:
+		cron:
+			enabled: on
+			allowedIps: ['127.0.0.1']
+	pageInfo:
+		projectName: My Project
+		author: author
+		description: description
+	pageConfig:
+		itemsPerRow: 3
+		rowsPerPage: 3
+	expiration:
+		remember: 14 days
+		notRemember: 30 minutes
+	passwords:
+		minLength: 5

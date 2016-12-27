@@ -1,0 +1,136 @@
+{block sidebar}
+<!-- BEGIN SIDEBAR -->
+<div class="page-sidebar-wrapper">
+	<div class="page-sidebar navbar-collapse collapse">
+
+		<!-- BEGIN SIDEBAR MENU -->
+		<ul class="page-sidebar-menu page-sidebar-menu-default"
+				data-auto-scroll="true"
+				data-slide-speed="200">
+			<li class="sidebar-toggler-wrapper">
+				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				<div class="sidebar-toggler hide" data-url="{link toggleSidebar!}"></div>
+				<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+			</li>
+
+			<li class="heading">
+				<h3 class="uppercase">{$pageInfo->projectName}</h3>
+			</li>
+			<li n:if="$user->isAllowed('dashboard', 'default')"
+					n:class="$presenter->isLinkCurrent('Dashboard:*') ? active">
+				<a n:href="Dashboard:">
+					<i class="fa fa-home"></i>
+					<span class="title">{_'Dashboard'}</span><span class="selected"></span>
+				</a>
+			</li>
+
+			<!-- BEGIN ADMIN -->
+			<li class="heading">
+				<h3 class="uppercase">{_'Administration'}</h3>
+			</li>
+			<li n:if="$user->isAllowed('invoices', 'default')"
+					n:class="$presenter->isLinkCurrent('Invoices:*') ? active">
+				<a n:href="Invoices:">
+					<i class="fa fa-inbox"></i>
+					<span class="title">{_'Invoices'}</span><span class="selected"></span>
+				</a>
+			</li>
+			<li n:if="$user->isAllowed('addressBook', 'default')"
+					n:class="$presenter->isLinkCurrent('AddressBook:*') ? active">
+				<a n:href="AddressBook:">
+					<i class="fa fa-book"></i>
+					<span class="title">{_'Address Book'}</span><span class="selected"></span>
+				</a>
+			</li>
+			<li n:if="$user->isAllowed('vat', 'default')"
+					n:class="$presenter->isLinkCurrent('Vat:*') ? active">
+				<a n:href="Vat: date('Y')">
+					<i class="fa fa-institution"></i>
+					<span class="title">{_'Vat'}</span><span class="selected"></span>
+				</a>
+			</li>
+			<li n:if="$user->isAllowed('costs', 'default')"
+					n:class="$presenter->isLinkCurrent('Costs:*') ? active">
+				<a n:href="Costs:">
+					<i class="fa fa-money"></i>
+					<span class="title">{_'Costs'}</span><span class="selected"></span>
+				</a>
+			</li>
+			<li n:if="$user->isAllowed('users', 'default')"
+					n:class="$presenter->isLinkCurrent('Users:*') ? active">
+				<a n:href="Users:">
+					<i class="fa fa-user"></i>
+					<span class="title">{_'Users'}</span><span class="selected"></span>
+				</a>
+			</li>
+			<!-- END ADMIN -->
+
+			<!-- BEGIN SUPERADMIN -->
+			<li class="heading" n:if="$user->isInRole(\App\Model\Entity\Role::SUPERADMIN)">
+				<h3 class="uppercase">{_'Superadmin'}</h3>
+			</li>
+			<li n:if="$user->isAllowed('examples', 'default')"
+					n:class="start, $presenter->isLinkCurrent('Examples:*') ? active">
+				<a n:href="Examples:">
+					<i class="fa fa-life-ring"></i>
+					<span class="title">{_'Examples'}</span><span class="selected"></span>
+				</a>
+				<ul class="sub-menu">
+					<li n:class="$presenter->isLinkCurrent('Examples:form') ? active">
+						<a n:href="Examples:form">
+							<i class="fa fa-file-text-o"></i>
+							{_'Form'}
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li n:if="$user->isAllowed('service', 'tools')"
+					n:class="start, $presenter->isLinkCurrent('Service:*') ? active">
+				<a n:href="Service:">
+					<i class="fa fa-gears"></i>
+					<span class="title">{_'Service'}</span><span class="selected"></span>
+				</a>
+				<ul class="sub-menu">
+					<li n:class="$presenter->isLinkCurrent('Service:tools') ? active">
+						<a n:href="Service:tools">
+							<i class="fa fa-code"></i>
+							{_'Tools'}
+						</a>
+					</li>
+					<li n:class="$presenter->isLinkCurrent('Service:creators') ? active">
+						<a n:href="Service:creators">
+							<i class="fa fa-bolt"></i>
+							{_'Creators'}
+						</a>
+					</li>
+				</ul>
+			</li>
+			<!-- END SUPERADMIN -->
+
+			<!-- BEGIN TOGETHER AREA -->
+			<li class="heading">
+				<h3 class="uppercase">{_'Settings'}</h3>
+			</li>
+			<li n:if="$user->isAllowed('settings', 'default')"
+					n:class="$presenter->isLinkCurrent('Settings:*') ? active">
+				<a n:href="Settings:">
+					<i class="icon-settings"></i>
+					<span class="title">{_'Settings'}</span>
+					<span class="selected"></span>
+				</a>
+				<ul class="sub-menu">
+					<li n:if="$user->isAllowed('settings', 'default')"
+							n:class="$presenter->isLinkCurrent('Settings:default') ? active">
+						<a n:href="Settings:">
+							<i class="fa fa-shopping-cart"></i>
+							{_'E-shop'}
+						</a>
+					</li>
+				</ul>
+			</li>
+			<!-- END TOGETHER AREA -->
+		</ul>
+		<!-- END SIDEBAR MENU -->
+	</div>
+</div>
+<!-- END SIDEBAR -->

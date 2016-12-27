@@ -1,0 +1,1584 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.2\n"
+
+msgid "shopTitle"
+msgstr "Mobilné telefóny, Nahradné diely, mobily, príslušenstvo, eshop"
+
+msgid "Yes"
+msgstr "Áno"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "Czech"
+msgstr "Čeština"
+
+msgid "Slovak"
+msgstr "Slovenčina"
+
+msgid "English"
+msgstr "Angličtina"
+
+msgid "locale_cs"
+msgstr "Čeština"
+
+msgid "locale_sk"
+msgstr "Slovenčina"
+
+msgid "locale_en"
+msgstr "Angličtina"
+
+msgid "Loading..."
+msgstr "Načítavam..."
+
+msgid "Deactivate"
+msgstr "Deaktivovať"
+
+msgid "Activate"
+msgstr "Aktivovať"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "Twitter"
+msgstr "Twitter"
+
+msgid "or login using"
+msgstr "alebo prihlásenie pomocou"
+
+msgid "Google"
+msgstr "Google"
+
+msgid "Linkedin"
+msgstr "Linkedin"
+
+msgid "or register with"
+msgstr "alebo sa zaregistrujete na"
+
+msgid "other image"
+msgstr "iný obrázok"
+
+msgid "Delete"
+msgstr "Zmazať"
+
+msgid "Availability"
+msgstr "Dostupnosť"
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "Items %begin% to %end% of %count% total"
+msgstr "Položka %begin% až %end% z %count%  celkom"
+
+msgid "Despite our efforts, we found no product."
+msgstr "Napriek našej snahe, nenašli sme žiadny produkt."
+
+msgid "Try entering a different category, or possibly change product filter."
+msgstr "Skúste vybrať inú kategóriu, alebo prípadne zmeniť filter produktu."
+
+msgid "We believe, then you will find your product."
+msgstr "Veríme, že potom svoj produkt najdete."
+
+msgid "Zoom"
+msgstr "Náhľad"
+
+msgid "View"
+msgstr "Detail"
+
+msgid "Add to cart"
+msgstr "Do košíka"
+
+msgid "This ia a system generated email and reply is not required."
+msgstr "Tento email je generovaný systémom, neodpovedajte naň."
+
+msgid "Unsubscribe"
+msgstr "Odhlásiť odber"
+
+msgid "from this newsletter instantly."
+msgstr "z tohto newsletteru okamžite."
+
+msgid "About Us"
+msgstr "O nás"
+
+msgid "Privacy Policy"
+msgstr "Ochrana osobných údajov"
+
+msgid "Terms of Use"
+msgstr "Podmienky používania"
+
+msgid "Thank you for joining the %name%"
+msgstr "Ďakujeme za registráciu!"
+
+msgid "Your registration was successfull."
+msgstr "Vaša registrácia prebehla úspešne."
+
+msgid "You can set your password"
+msgstr "Môžete si nastaviť svoje heslo"
+
+msgid "Please click the following URL to to set you password"
+msgstr "Pre nastavenie Vášho hesla, kliknite na nasledujúcu  URL adresu"
+
+msgid "If clicking the URL above does not work, copy and paste the URL into a browser window."
+msgstr "Ak na tento odkaz nemožno kliknúť, skopírujte ho a vložte do prehliadača."
+
+msgid "The link will expire in an hour."
+msgstr "Platnosť odkazu vyprší za hodinu."
+
+msgid "Please click the following URL to activate your account"
+msgstr "Prosím kliknite na nasledujúcu URL adresu pre aktivácii účtu"
+
+msgid "Categories"
+msgstr "Kategória"
+
+msgid "Add Main Category"
+msgstr "Pridať hlavnú kategóriu"
+
+msgid "New Main Category"
+msgstr "Nová hlavná kategória"
+
+msgid "Edit of category"
+msgstr "Upraviť kategóriu"
+
+msgid "Edit selected category"
+msgstr "Upraviť vybranú kategóriu"
+
+msgid "Select some category from tree"
+msgstr "Vyberte kategóriu zo stromu"
+
+msgid "Dashboard"
+msgstr "Úvodná stránka"
+
+msgid "reports & statistics"
+msgstr "Reporty a štatistiky"
+
+msgid "Example Form"
+msgstr "Vzorový formulár"
+
+msgid "Examples"
+msgstr "Príklady"
+
+msgid "Form"
+msgstr "Formulár"
+
+msgid "by Mediahost"
+msgstr "Mediahost"
+
+msgid "Add"
+msgstr "Pridať"
+
+msgid "Edit"
+msgstr "Upraviť"
+
+msgid "Full Screen"
+msgstr "Celá obrazovka"
+
+msgid "Sign out"
+msgstr "Odhlásiť"
+
+msgid "Home"
+msgstr "Domov"
+
+msgid "Pages"
+msgstr "Stránky"
+
+msgid "Add Page"
+msgstr "Pridať stránku"
+
+msgid "Edit Page"
+msgstr "Upraviť stránku"
+
+msgid "page"
+msgstr "stránka"
+
+msgid "Parameters"
+msgstr "Parametre"
+
+msgid "Add new parameter"
+msgstr "Pridať nový parameter"
+
+msgid "Add Parameter"
+msgstr "Pridať parameter"
+
+msgid "String"
+msgstr "Reťazec"
+
+msgid "Number"
+msgstr "Číslo"
+
+msgid "YES or NO"
+msgstr "ÁNO alebo NIE"
+
+msgid "Edit Parameter"
+msgstr "Upraviť parameter"
+
+msgid "Producers"
+msgstr "Výrobcovia"
+
+msgid "Add Producer"
+msgstr "Pridať výrobcu"
+
+msgid "Model Parameters"
+msgstr "Parametre modelu"
+
+msgid "Add Model Parameter"
+msgstr "Pridať parameter modelu"
+
+msgid "Edit Model Parameter"
+msgstr "Úpraviť parameter modelu"
+
+msgid "Edit of %name%"
+msgstr "Úpraviť %name%"
+
+msgid "Edit selected producer, line or model"
+msgstr "Úpraviť vybraného výrobcu, radu alebo model"
+
+msgid "Select some producer, line or model from tree"
+msgstr "Vyberte výrobcu, radu alebo model zo stromu"
+
+msgid "Select model from tree"
+msgstr "Vyberte model zo stromu"
+
+msgid "Edit questions for selected model"
+msgstr "Upraviť otázky pre vybraný model"
+
+msgid "Edit questions for model"
+msgstr "Upraviť otázky pre model"
+
+msgid "Products"
+msgstr "Tovar"
+
+msgid "Add Product"
+msgstr "Pridať tovar"
+
+msgid "CSV Update"
+msgstr "CSV Aktualizácia"
+
+msgid "Basic data"
+msgstr "Základné údaje"
+
+msgid "Prices"
+msgstr "Ceny"
+
+msgid 'Prices for "%name%"'
+msgstr 'Ceny pre "%name%"'
+
+msgid "Quantity"
+msgstr "Množstvo"
+
+msgid "Classification"
+msgstr "Klasifikácia"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "Images"
+msgstr "Obrázky"
+
+msgid "Signs"
+msgstr "Príznaky"
+
+msgid "Similars"
+msgstr "Podobný tovar"
+
+msgid "Service Creators"
+msgstr "Service Creators"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "Creators"
+msgstr "Creators"
+
+msgid "Nothing"
+msgstr "Nič"
+
+msgid "Nothing yet"
+msgstr "Zatiaľ nič"
+
+msgid "Service Tools"
+msgstr "Servisné nástroje"
+
+msgid "Tools"
+msgstr "Nástroje"
+
+msgid "Import Init Data to DB"
+msgstr "Importovať inicializačné data do DB"
+
+msgid "contains RE-INSTALL DB"
+msgstr "obsahuje RE-INSTALL DB"
+
+msgid "Clear all data in DB and imports initial data from test backup."
+msgstr "Zmazať všetky údaje v DB a importovať počiatočné údaje z testovacej zálohy."
+
+msgid "Please create BACKUP before do this DB schema!"
+msgstr "Prosím, vytvorte ZÁLOHU predtým než nahráte toto DB schéma"
+
+msgid "Install DB"
+msgstr "Inštalovať databázu"
+
+msgid "Run istalation procedure."
+msgstr "Spustiť inštaláciu."
+
+msgid "DB will be maintained."
+msgstr "DB bude zachovaná."
+
+msgid "Reinstall DB"
+msgstr "Znovu inštalovať databázu"
+
+msgid "Clear actual DB schema and reinstall DB"
+msgstr "Zmazať aktuálnu DB schéma preinštalovať DB"
+
+msgid "Settings"
+msgstr "Nastavenie"
+
+msgid "E-Shop"
+msgstr "E-Shop"
+
+msgid "Currency rate"
+msgstr "Menový kurz"
+
+msgid "Units"
+msgstr "Jednotky"
+
+msgid "Edit units"
+msgstr "Upraviť jednotky"
+
+msgid "Administration"
+msgstr "Správa"
+
+msgid "Order"
+msgstr "Objednávka"
+
+msgid "Orders"
+msgstr "Objednávky"
+
+msgid "Edit Order Items"
+msgstr "Upraviť položky objednávky"
+
+msgid "Users"
+msgstr "Užívatelia"
+
+msgid "Discounts"
+msgstr "Zľavy"
+
+msgid "Discount"
+msgstr "Zľava"
+
+msgid "Add Discount"
+msgstr "Přidať zľavu"
+
+msgid "Edit Discount"
+msgstr "Upraviť zľavu"
+
+msgid "Value"
+msgstr "Hodnota"
+
+msgid "Value is required"
+msgstr "Hodnota musí byť zadaná"
+
+msgid "Code is required"
+msgstr "Kód musí byť zadán"
+
+msgid "Active from"
+msgstr "Aktívny od"
+
+msgid "Active to"
+msgstr "Aktívny do"
+
+msgid "now"
+msgstr "teraz"
+
+msgid "without ending"
+msgstr "bez ukončenia"
+
+msgid "Superadmin"
+msgstr "Superadmin"
+
+msgid "Service"
+msgstr "Servis"
+
+msgid "E-shop"
+msgstr "E-shop"
+
+msgid "Online Store"
+msgstr "Online obchod"
+
+msgid "Add Sign"
+msgstr "Pridať príznak"
+
+msgid "Edit Sign"
+msgstr "Upraviť príznak"
+
+msgid "Theme Color"
+msgstr "Farba témy"
+
+msgid "Layout"
+msgstr "Rozloženie"
+
+msgid "Fluid"
+msgstr "Plávajúce"
+
+msgid "Boxed"
+msgstr "Boxed"
+
+msgid "Header"
+msgstr "Hlavička"
+
+msgid "Fixed"
+msgstr "Pevný"
+
+msgid "Default"
+msgstr "Predvolené"
+
+msgid "Sidebar Mode"
+msgstr "Mód bočného menu"
+
+msgid "Sidebar Menu"
+msgstr "Bočné menu"
+
+msgid "Accordion"
+msgstr "Accordion"
+
+msgid "Hover"
+msgstr "Hover"
+
+msgid "Sidebar Style"
+msgstr "Sidebar Style"
+
+msgid "Light"
+msgstr "Svetlý"
+
+msgid "Sidebar Position"
+msgstr "Sidebar Position"
+
+msgid "Left"
+msgstr "Ľavý"
+
+msgid "Right"
+msgstr "Pravý"
+
+msgid "Footer"
+msgstr "Pätička"
+
+msgid "Add User"
+msgstr "Pridať užívateľa"
+
+msgid "Edit User"
+msgstr "Upraviť užívateľa"
+
+msgid "View Cart"
+msgstr "Prezrieť košík"
+
+msgid "Checkout"
+msgstr "Pokladňa"
+
+msgid "Bestsellers"
+msgstr "Najpredávanejšie"
+
+msgid "Search"
+msgstr "Hľadať"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Select your accessories for..."
+msgstr "Vyberte si príslušenstvo pre..."
+
+msgid "Accessories for \"%model%\""
+msgstr "Príslušenstvo \"%model%\""
+
+msgid "Access Denied"
+msgstr "Prístup zamietnutý"
+
+msgid "You do not have permission to view this page."
+msgstr "Nemáte oprávnenie na pozeranie tejto stránky"
+
+msgid "Please try contact the web site administrator if you believe you should be able to view this page."
+msgstr "Skúste kontaktovať administrátora tohto webu, ak si myslíte, že by ste sem mali mať prístup."
+
+msgid "Return home"
+msgstr "Späť domov"
+
+msgid "Logout"
+msgstr "Odhlásiť"
+
+msgid "Oops!  You're lost."
+msgstr "Ups! Stratili ste sa."
+
+msgid "We can not find the page you're looking for."
+msgstr "Nemôžeme nájsť stránku, ktorú hľadáte."
+
+msgid "or try the search bar above."
+msgstr "Alebo skúste použiť vyhľadávanie hore"
+
+msgid "Page Not Found"
+msgstr "Stránka nenájdená"
+
+msgid "Method Not Allowed"
+msgstr "Metóda nepovolené"
+
+msgid "The requested method is not allowed for the URL."
+msgstr "Požadovaná metóda nie je povolená pre URL adresu."
+
+msgid "The page you requested has been taken off the site. We apologize for the inconvenience."
+msgstr "Stránka, ktorú hľadáte była z webu vymazaná. Ospravedlňujeme sa za spôsobené nepríjemnosti."
+
+msgid "Oops..."
+msgstr "Ups..."
+
+msgid "Sorry, we have a problem."
+msgstr "Ospravedlňujeme sa, ale máme problém."
+
+msgid "Your browser sent a request that this server could not understand or process."
+msgstr "Váš prehliadač poslal žiadosť, ktorej tento server nerozumie alebo ju nevie spracovať."
+
+msgid "Oops! Something went wrong."
+msgstr "Ups! Niečo sa pokazilo."
+
+msgid "We are fixing it!"
+msgstr "Už na tom pracujeme!"
+
+msgid "Please come back in a while."
+msgstr "Prosím, vráťte sa za chvíľu."
+
+msgid "Server Error"
+msgstr "Chyba serveru"
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Free shipping"
+msgstr "Doprava zadarmo"
+
+msgid "Open hours"
+msgstr "Otváracia doba"
+
+msgid "Our Contacts"
+msgstr "Naše kontakty"
+
+msgid "Phone"
+msgstr "Telefón"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Mail"
+msgstr "E-mail"
+
+msgid "Latest Tweets"
+msgstr "Naše Tweety"
+
+msgid "Loading tweets by"
+msgstr "Načítanie tweetov"
+
+msgid "Facebook Posts"
+msgstr "Facebook príspevky"
+
+msgid "Our Facebook"
+msgstr "Náš Facebook"
+
+msgid "Terms of Service"
+msgstr "Obchodné podmienky"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Top products"
+msgstr "Top tovar"
+
+msgid "Last visited"
+msgstr "Posledné navštívené"
+
+msgid "My Account"
+msgstr "Môj účet"
+
+msgid "Account"
+msgstr "Účet"
+
+msgid "My Social Connection"
+msgstr "Sociálne siete"
+
+msgid "Edit your account information"
+msgstr "Upraviť informácie o účte"
+
+msgid "Connect your account with Facebook or Twitter"
+msgstr "Prepojte svoj účet s Facebookom alebo Twitterom"
+
+msgid "Change your password"
+msgstr "Zmeniť heslo"
+
+msgid "My Orders"
+msgstr "Moje objednávky"
+
+msgid "View your order history"
+msgstr "Prehliadnite si históriu svojich objednávok"
+
+msgid "Delete Account"
+msgstr "Zmazať účet"
+
+msgid "Do you really want to delete all data for your account?"
+msgstr "Naozaj chcete vymazať VŠETKY údaje zo svojho účtu?"
+
+msgid "Yes, I want"
+msgstr "Áno, chcem"
+
+msgid "Personal Info"
+msgstr "Osobné informácie"
+
+msgid "Soacial Connection"
+msgstr "Spojenia s účtami"
+
+msgid "Change Password"
+msgstr "Zmena hesla"
+
+msgid "In Stock"
+msgstr "Skladom"
+
+msgid "Temporarily Sold Out"
+msgstr "Dočasné vypredané"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Reviews"
+msgstr "Recenzie"
+
+msgid "Additional features"
+msgstr "Ďalšie funkcie"
+
+msgid "%type% for %name%"
+msgstr "%type% pre %name%"
+
+msgid "Post warranty, paid service interventions"
+msgstr "Pozáručné platené servisné zásahy"
+
+msgid "Please describe your defects and we will contact you back with solution options"
+msgstr "Popíšte chybu na svojom zariadení a budeme Vás kontaktovať späť s možnosťami riešenia"
+
+msgid "Please describe your device and we will contact you back with price options"
+msgstr "Popíšte svoje zariadenie a budeme Vás kontaktovať späť s cenovými možnosťami"
+
+msgid "Repair"
+msgstr "Oprava"
+
+msgid "Price with vat"
+msgstr "Cena s DPH"
+
+msgid "Price without vat"
+msgstr "Cena bez DPH"
+
+msgid "Contact us:"
+msgstr "Kontaktujte nás:"
+
+msgid "Sign In"
+msgstr "Prihlásiť sa"
+
+msgid "Don't you have"
+msgstr "Nemáte vytvorený"
+
+msgid "your account"
+msgstr "svoj účet"
+
+msgid "Create account and gain an advantage in bonus program."
+msgstr "Vytvoriť účet a získajte výhodu v bonusovom programe."
+
+msgid "Create an account"
+msgstr "Vytvoriť účet"
+
+msgid "Forgot Your Password?"
+msgstr "Zabudli ste heslo?"
+
+msgid "Enter your e-mail address below to set new one."
+msgstr "Zadajte e-mailovú adresu pre nastavenie nového hesla"
+
+msgid "Password recovery"
+msgstr "Obnova hesla"
+
+msgid "Enter a new password to your account."
+msgstr "Zadajte nové heslo k vášmu účtu."
+
+msgid "Registration"
+msgstr "Registrácia"
+
+msgid "Easy to create..."
+msgstr "Hned hotovo..."
+
+msgid "Discounted shipping for"
+msgstr "Zľavnené poštovné pre"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "%code% rate"
+msgstr "%code% kurz"
+
+msgid "We do not register any user with mail '%mail%'."
+msgstr "Bohužiaľ, uživatel s emailom '%mail%' nebol nájdený v našom systéme. "
+
+msgid "Logged %name% account is using by another account."
+msgstr "Prihlasovacie meno %name% je už používané iným účtom."
+
+msgid "We can't find '%name%' to disconnect."
+msgstr "Nemôžeme nájsť '%name%' k odpojeniu."
+
+msgid "Last login method is not possible deactivate."
+msgstr "Nie je možné deaktivovať poslednú prihlasovaciu metódu."
+
+msgid "%name% was connected."
+msgstr "%name% bol pripojený."
+
+msgid "%name% was disconnected."
+msgstr "%name% bol odpojený."
+
+msgid "Password has been successfuly set!"
+msgstr "Heslo bolo úspešne nastavené!"
+
+msgid "You can't delete account."
+msgstr "Nemôžete vymazať účet."
+
+msgid "Your account has been deleted"
+msgstr "Váš účet bol zmazaný"
+
+msgid "You are logged as '%name'."
+msgstr "Ste prihlásený ako '%name%'."
+
+msgid "You can't access to this user."
+msgstr "Nedá sa získať prístup k tomuto užívateľovi."
+
+msgid "Not implemented yet."
+msgstr "Zatiaľ nie je implementované."
+
+msgid "You can't edit this user."
+msgstr "Nemôžete upravovať tohto používateľa."
+
+msgid "You have reached the maximum of user groups."
+msgstr "Dosiahli ste maximálneho počtu používateľských skupín."
+
+msgid "This image wasn't found for this product."
+msgstr "Obrázok pre tento tovar nebol nájdený."
+
+msgid "You aren't logged in."
+msgstr "Nie ste prihlásený."
+
+msgid "This color isn't supported."
+msgstr "Táto farba nie je podporovaná."
+
+msgid "There is no child for this selection."
+msgstr "Nie je žiadny potomok pre tento výber"
+
+msgid "Error while saving producer."
+msgstr "Chyba pri ukladaní výrobcu."
+
+msgid "wasntFound"
+msgstr "%name% nebol nájdený."
+
+msgid "wasntFoundShe"
+msgstr "%name% nebola nájdená."
+
+msgid "wasntFoundIt"
+msgstr "%name% nebolo nájdené."
+
+msgid "cantBeEmpty"
+msgstr "%name% nemôže byť prázdny."
+
+msgid "cantBeEmptyShe"
+msgstr "%name% nemôže byť prázdna."
+
+msgid "cantBeEmptyIt"
+msgstr "%name% nemôže byť prázdne."
+
+msgid "cannotDelete"
+msgstr "%name% nemôže byť vymazaný."
+
+msgid "cannotDeleteShe"
+msgstr "%name% nemôže byť vymazaná."
+
+msgid "cannotDeleteIt"
+msgstr "%name% nemôže byť vymazané."
+
+msgid "successfullyDeleted"
+msgstr "%name% bol úspešne vymazaný."
+
+msgid "successfullyDeletedShe"
+msgstr "%name% bola úspešne vymazaná."
+
+msgid "successfullyDeletedIt"
+msgstr "%name% bolo úspešne vymazané."
+
+msgid "successfullySaved"
+msgstr "%type% '%name%' bol úspešne uložený."
+
+msgid "successfullySavedHe"
+msgstr "%type% '%name%' bol úspešne uložený."
+
+msgid "successfullySavedShe"
+msgstr "%type% '%name%' bola úspešne uložená."
+
+msgid "successfullySavedIt"
+msgstr "%type% '%name%' bolo úspešne uložené."
+
+msgid "successfullyUpdated"
+msgstr "%type% '%name%' bol úspešne aktualizovaný."
+
+msgid "successfullyUpdatedShe"
+msgstr "%type% '%name%' bola úspešne aktualizovaná."
+
+msgid "successfullyUpdatedIt"
+msgstr "%type% '%name%' bolo úspešne aktualizované.."
+
+msgid "%count% product was successfully updated."
+msgstr "%count% položka bola úspešne aktualizovaná.|%count% položky boli úspešne aktualizované.|%count% položiek bolo úspešne aktualizovaných."
+
+msgid "Group"
+msgstr "Skupina"
+
+msgid "Groups"
+msgstr "Skupiny"
+
+msgid "Add Group"
+msgstr "Pridať skupinu"
+
+msgid "Edit Group"
+msgstr "Upraviť skupinu"
+
+msgid "--- No Group ---"
+msgstr "--- Bez skupiny ---"
+
+msgid "Parameter"
+msgstr "Parameter"
+
+msgid "Product"
+msgstr "Tovar"
+
+msgid "Sign"
+msgstr "Príznak"
+
+msgid "User"
+msgstr "Užívateľ"
+
+msgid "Producer"
+msgstr "Výrobca"
+
+msgid "Line"
+msgstr "Rada"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Page"
+msgstr "Stránka"
+
+msgid "Entity type"
+msgstr "Typ entity"
+
+msgid "Entity"
+msgstr "Entita"
+
+msgid "Category"
+msgstr "Kategória"
+
+msgid "Main category"
+msgstr "Hlavná kategória"
+
+msgid "Parent category"
+msgstr "Nadradená kategória"
+
+msgid "Select some category"
+msgstr "Vybrať kategóriu"
+
+msgid "Lang"
+msgstr "Jazyk"
+
+msgid "Name"
+msgstr "Názov"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Your e-mail has been seccessfully verified!"
+msgstr "Váš email bol úspešne overený."
+
+msgid "Verification token is incorrect."
+msgstr "Overovací reťazec je nesprávny."
+
+msgid "Recovery link has been sent to your mail."
+msgstr "Odkaz pre obnovu hesla bol odoslaný na Váš email."
+
+msgid "You have reached the maximum of free parameters for this type."
+msgstr "Dosiahli ste maximálneho počtu voľných parametrov tohto typu."
+
+msgid "You are logged in."
+msgstr "Ste prihlásený."
+
+msgid "Your account has been seccessfully created."
+msgstr "Váš účet bol vytvorený!"
+
+msgid "Your password has been successfully changed!"
+msgstr "Vaše heslo bolo úspešne zmenené!"
+
+msgid "We have sent you a verification e-mail. Please check your inbox!"
+msgstr "Práve sme Vám poslali e-mail pre overenie. Skontrolujte prosím svoju schránku!"
+
+msgid "%value% is already registered."
+msgstr "%value% je už zaregistrovaná."
+
+msgid "%value% is already used."
+msgstr "%value% je už použito."
+
+msgid "At least %count% characters long."
+msgstr "Aspoň %count% znakov dlhé."
+
+msgid "This module isn't allowed."
+msgstr "Tento modul nie je povolený."
+
+msgid "Requested product does't exist. Try to choose another from list."
+msgstr "Požadovaný produkt neexistuje. Skúste si vybrať zo zoznamu iný."
+
+msgid "Requested category doesn't exist. Try to choose another from list."
+msgstr "Požadovaná kategória neexistuje. Skúste si vybrať zo zoznamu inú."
+
+msgid "Requested currency isn't supported."
+msgstr "Požadovaná mena nie je podporovaná"
+
+msgid "Requested language isn't supported."
+msgstr "Požadovaný jazyk nie je podporovaný."
+
+msgid "DB was reinstaled"
+msgstr "DB bola preinštalovaná"
+
+msgid "DB was instaled"
+msgstr "DB bola inštalovaná"
+
+msgid "Data was imported from SQL files"
+msgstr "Dáta boli importované z SQL súborov"
+
+msgid "This sorting method isn't supported."
+msgstr "Táto metóda triedenia nie je podporovaná."
+
+msgid "This is only example form"
+msgstr "Toto je iba vzorový formulár"
+
+msgid "We are sorry, twitter authentication failed hard."
+msgstr "Ospravedlňujeme sa za zlyhanie overenia prihlásenia na Twitteri."
+
+msgid "We are sorry, facebook authentication failed hard."
+msgstr "Ospravedlňujeme sa za zlyhanie overenia prihlásenia na Facebooku."
+
+msgid "E-mail account"
+msgstr "E-mailový účet"
+
+msgid "Please enter your e-mail"
+msgstr "Prosím, vložte svoj e-mail"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Fill right e-mail format"
+msgstr "Vyplňte správny formát e-mailu"
+
+msgid "Send"
+msgstr "Odoslať"
+
+msgid "New password"
+msgstr "Nové heslo"
+
+msgid "Password"
+msgstr "Heslo"
+
+msgid "Please enter your password"
+msgstr "Zadajte svoje heslo"
+
+msgid "Please re-enter your password"
+msgstr "Zadajte znova svoje heslo"
+
+msgid "Password must be at least %count% characters long."
+msgstr "Heslo musí obsahovať najmenej %count% znakov."
+
+msgid "Re-type Your Password"
+msgstr "Znovu zadajte svoje heslo"
+
+msgid "Passwords must be equal."
+msgstr "Heslá musia byť zhodné"
+
+msgid "Set new password"
+msgstr "Nastaviť nové heslo"
+
+msgid "Please enter your e-mail."
+msgstr "Prosím, zadajte svoj e-mail."
+
+msgid "E-mail has not valid format."
+msgstr "E-mail nemá platný formát."
+
+msgid "for example: example@domain.com"
+msgstr "napríklad: example@domain.com"
+
+msgid "Continue"
+msgstr "Pokračovať"
+
+msgid "Image must be in valid image format"
+msgstr "Obrázok musí byť v platnom obrazovom formáte"
+
+msgid "Slider"
+msgstr "Slider"
+
+msgid "Save & Add next"
+msgstr "Uložiť a Pridať ďalšie"
+
+msgid "Save"
+msgstr "Uložiť"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Text while Error"
+msgstr "Text pri chybe"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Name is required"
+msgstr "Je vyžadované meno"
+
+msgid "ID #"
+msgstr "ID #"
+
+msgid "Are you sure you want to delete '%name%'?"
+msgstr "Ste si istí, že chcete vymazať '%name%'?"
+
+msgid "Shortly about contain of page"
+msgstr "Krátko o obsahu stránky"
+
+msgid "Fill if you want to redirect to other page"
+msgstr "Vyplňte, ak chcete presmerovať na inú stránku"
+
+msgid "Content is required"
+msgstr "Obsah je vyžadovaný"
+
+msgid "This link is invalid"
+msgstr "Tento odkaz je neplatný"
+
+msgid "Comment"
+msgstr "Komentár"
+
+msgid "Link"
+msgstr "Odkaz"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Text is required"
+msgstr "Je vyžadovaný text"
+
+msgid "Select some producer"
+msgstr "Vybrať výrobcu"
+
+msgid "Select some line"
+msgstr "Vybrať radu"
+
+msgid "Select some model"
+msgstr "Vybrať model"
+
+msgid "Text for service"
+msgstr "Text pre servis"
+
+msgid "Prices are with VAT"
+msgstr "Ceny sú uvedené s DPH"
+
+msgid "YES"
+msgstr "Áno"
+
+msgid "NO"
+msgstr "Nie"
+
+msgid "CSV file"
+msgstr "CSV súbor"
+
+msgid "Update Products"
+msgstr "Aktualizovať tovar"
+
+msgid "Product title"
+msgstr "Názov tovaru"
+
+msgid "Insert product name"
+msgstr "Vložiť nazov tovaru"
+
+msgid "Active"
+msgstr "Aktívny"
+
+msgid "Vat included"
+msgstr "vrátane DPH"
+
+msgid "Vat"
+msgstr "DPH"
+
+msgid "Perex"
+msgstr "Perex"
+
+msgid "Code"
+msgstr "Kód"
+
+msgid "Barcode"
+msgstr "Čiarový kód"
+
+msgid "All categories"
+msgstr "Všetky kategórie"
+
+msgid "Main Image"
+msgstr "Hlavný obrázok"
+
+msgid "New other image"
+msgstr "Ďalší nový obrázok"
+
+msgid "Purchase price"
+msgstr "Kúpna cena"
+
+msgid "Old price"
+msgstr "Stará cena"
+
+msgid "Url"
+msgstr "URL"
+
+msgid "Url must have %count% character at least"
+msgstr "URL  musí mať asponň %count% znakov"
+
+msgid "Title must have %count% character at least"
+msgstr "Názov musí mať asponň %count% znakov"
+
+msgid "Keywords"
+msgstr "Kľúčové slová"
+
+msgid "Store"
+msgstr "Obchod"
+
+msgid "Locked"
+msgstr "Zamknutý"
+
+msgid "Public"
+msgstr "Verejný"
+
+msgid "View on web"
+msgstr "Na webe"
+
+msgid "Fill right format"
+msgstr "Vyplňte data v správnom formáte"
+
+msgid "Mail must be filled"
+msgstr "E-mail musi byť vyplnený"
+
+msgid "Roles"
+msgstr "Role"
+
+msgid "Access"
+msgstr "Prístup"
+
+msgid "Forget Password?"
+msgstr "Zabudli ste heslo?"
+
+msgid "Remember"
+msgstr "Zapamätať si"
+
+msgid "Code for Pohoda"
+msgstr "Kód pre Pohodu"
+
+msgid "Identification for synchronizing"
+msgstr "Identifikácia pre synchronizáciu"
+
+msgid "automaticly generated"
+msgstr "automaticky generovaný"
+
+msgid "Product must be synchronized"
+msgstr "Produkt musí byť synchronizovaný"
+
+msgid "Search by Keyword"
+msgstr "Čo hľadáte?"
+
+msgid "Not Available"
+msgstr "Nedostupné"
+
+msgid "Only Available"
+msgstr "iba skladem"
+
+msgid "Range:"
+msgstr "Rozsah:"
+
+msgid "Sort by"
+msgstr "Zoradiť"
+
+msgid "Show"
+msgstr "Zobraziť"
+
+msgid "Price (Low > High)"
+msgstr "Od najlacnejšieho"
+
+msgid "Price (High > Low)"
+msgstr "Od najdrahšieho"
+
+msgid "Name (A - Z)"
+msgstr "Názvu (A - Z)"
+
+msgid "Name (Z - A)"
+msgstr "Názvu (Z - A)"
+
+msgid "Created At"
+msgstr "Vytvorené"
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Edit Items"
+msgstr "Upraviť položky"
+
+msgid "Items"
+msgstr "Položky"
+
+msgid "Edit Order #%number%"
+msgstr "Úprava objednávky č. %number%"
+
+msgid "Order #%number%"
+msgstr "Objednávka č. %number%"
+
+msgid "Add new items"
+msgstr "Pridať nové položky"
+
+msgid "Insufficient quantity on stock."
+msgstr "Nedostatočný počet kusov skladom."
+
+msgid "No more free product."
+msgstr "Na sklade nie sú žiadne ďalšie produkty."
+
+msgid "Only %count% free product."
+msgstr "Iba %count% volných.|Iba %count% volné.|Iba %count% volných."
+
+msgid "%count% item was already inserted."
+msgstr "%count% položka je vložená.|%count% položky sú vložené.|%count% položiek je vložených."
+
+msgid "No free product '%name%'."
+msgstr "Produkt '%name%' nie je skladom"
+
+msgid "No free product with ID '%number%'."
+msgstr "Ďalší produkt s ID '%number%' nie je skladom."
+
+msgid "State"
+msgstr "Stav"
+
+msgid "Change State"
+msgstr "Zmena stavu"
+
+msgid "order in system"
+msgstr "Objednané v systéme"
+
+msgid "in proceedings"
+msgstr "Pripravujeme"
+
+msgid "sent shippers"
+msgstr "Odoslané prepravcovi"
+
+msgid "ready to take"
+msgstr "Pripravené na prevzatie - neexpedované"
+
+msgid "ready to take - expeded"
+msgstr "Pripravené na prevzatie - expedované"
+
+msgid "ok - recieved"
+msgstr "Ok - Prijaté"
+
+msgid "ok - taken"
+msgstr "Ok - Prevzaté"
+
+msgid "canceled"
+msgstr "Zrušené"
+
+msgid "Payment date"
+msgstr "Dátum zaplatenia"
+
+msgid "Not yet paid"
+msgstr "Doteraz nezaplatené"
+
+msgid "Set as paid"
+msgstr "Označiť ako zaplatené"
+
+msgid "Paid"
+msgstr "Zaplatené"
+
+msgid "Currency"
+msgstr "Mena"
+
+msgid "--- anyone ---"
+msgstr "--- všetky ---"
+
+msgid "Buyout"
+msgstr "Výkup"
+
+msgid "Buyout questions"
+msgstr "Výkupné otázky"
+
+msgid "Shippings & Payments"
+msgstr "Dopravné a platby"
+
+msgid "Shipping"
+msgstr "Dopravné"
+
+msgid "Shippings"
+msgstr "Dopravné"
+
+msgid "Payment"
+msgstr "Platba"
+
+msgid "Payments"
+msgstr "Platby"
+
+msgid "Edit Payment '%name%'"
+msgstr "Úprava platby '%name%'"
+
+msgid "Edit Shipping '%name%'"
+msgstr "Úprava poštovného '%name%'"
+
+msgid "For Shippings"
+msgstr "Pre dopravy"
+
+msgid "Need Address"
+msgstr "Zadajte adresu"
+
+msgid "Address"
+msgstr "Adresa"
+
+msgid "Your personal data was saved."
+msgstr "Vaše osobné údaje boli uložené."
+
+msgid "There are %count% products locked"
+msgstr "%count% produkt je zamknutý|%count% produkty sú zamknuté|%count% produktov je zamknutých"
+
+msgid "Allowed tags"
+msgstr "Povolené tagy"
+
+msgid "Order number"
+msgstr "Číslo objednávky"
+
+msgid "To pay"
+msgstr "K úhrade"
+
+msgid "You have no orders."
+msgstr "Nemáte doposiaľ žiadne objednávky."
+
+msgid "All future orders will be displayed here."
+msgstr "Všetky objednávky, ktoré vytvoríte budú zobrazené tu"
+
+msgid "You are a dealer."
+msgstr "Ste našim veľkoobchodníkom (dílerom)."
+
+msgid "You have been approved and now you can buy with special product prices."
+msgstr "Boli ste schválený ako díler, teraz môžete nakupovať za zvýhodnené ceny."
+
+msgid "Your dealer request is waiting for approve."
+msgstr "Vaša požiadavka čaká na schválenie."
+
+msgid "After approving of your request we will inform you."
+msgstr "Po schválení vašej žiadosti vás budeme informovať."
+
+msgid "Your dealer request was send"
+msgstr "Vaša požiadavka stať sa dílerom bola úspešne odoslaná. "
+
+msgid "More params"
+msgstr "Viac parametrov"
+
+msgid "Incorrect login or password!"
+msgstr "Nesprávny e-mail alebo heslo!"
+
+msgid "include %value% VAT"
+msgstr "vrátane %value% DPH"
+
+msgid "Dealer API"
+msgstr "API pro veľkoobchod"
+
+msgid "Your token"
+msgstr "Váš token"
+
+msgid "Reset token"
+msgstr "Obnoviť token"
+
+msgid "Create token"
+msgstr "Vytvoriť token"
+
+msgid "Client ID"
+msgstr "Klientské ID"
+
+msgid "Your token has been created"
+msgstr "Váš token byl vytvorený"
+
+msgid "You can't reset token."
+msgstr "Nelze resetovať token."
+
+msgid "XML for stocks list"
+msgstr "XML zoznam tovarov"
+
+msgid "XML for categories list"
+msgstr "XML zoznam kategórií"
+
+msgid "XML for availiblity list"
+msgstr "XML dostupnosťou tovarov"
+
+msgid "Create order"
+msgstr "Vytvorenie objednávky"
+
+msgid "Array of pairs Stock Id & Quantity"
+msgstr "Pole párov - ID tovaru a množstvo"
+
+msgid "ID of Shipping"
+msgstr "ID dopravy"
+
+msgid "ID of Payment"
+msgstr "ID platby"
+
+msgid "Shipping ID"
+msgstr "ID dopravy"
+
+msgid "Shipping Name"
+msgstr "Názov dopravy"
+
+msgid "Allowed Payments"
+msgstr "Povolené platby"
+
+msgid "Payment ID"
+msgstr "ID platby"
+
+msgid "Payment Name"
+msgstr "Názov platby"
+
+msgid "Example of succesfully response"
+msgstr "Príklad úspešnej odpovede"
+
+msgid "Example of error response"
+msgstr "Príklad neúspešné odpovede"
+
+msgid "Status can not be changed"
+msgstr "Stav nemožno zmeniť"
+
+msgid "percent"
+msgstr "Percentá"
+
+msgid "fixed"
+msgstr "Pevná suma"
+
+msgid "minus"
+msgstr "Minus suma"
+
+msgid "Must be between %d and %d"
+msgstr "Musí byť medzi %d a %d"
+
+msgid "Must be bigger than %d"
+msgstr "Musí byť väčšia ako %d"
+
+msgid "Bonus Points"
+msgstr "Bonusové body"
+
+msgid "My Bonus Points"
+msgstr "Moje bonusové body"
+
+msgid "You have: %count% bonus point"
+msgstr "Máte: %count% bonusový bod|Máte: %count% bonusové body|Máte: %count% bonusových bodov"
+
+msgid "and you are ranked in group %group%, which entitles you to a discount of %value%% on every product in our e-shop!"
+msgstr "a ste zaradený v skupine %group%, čo Vás oprávňuje k %value%% zľavě z každého produktu na našom e-shope!"
+
+msgid "We offer you a loyalty program to lower prices."
+msgstr "Ponúkame vám vernostný program nižších cien."
+
+msgid "Points count"
+msgstr "Počet bodov"
+
+msgid "Your discount"
+msgstr "Vaša zľava"
+
+msgid "For your every completed purchase we assign bonus points."
+msgstr "Za každý váš prevzatý nákup vám pridelíme bonusové body."
+
+msgid "One euro, one point to your account."
+msgstr "Jedno euro, jeden bod na váš účet."
+
+msgid "And to your point, you will have a permanent discount on all products in our range."
+msgstr "A podľa vašich bodov budete mať trvalú zľavu na všetky produkty v našej ponuke."
+
+msgid "Recount prices"
+msgstr "Prepočítať ceny"
+
+msgid "Insert your discount"
+msgstr "Vložiť vašu zľavu"
+
+msgid "Watch Price"
+msgstr "Sledovať cenu"
+
+msgid "HomeCredit iCalc"
+msgstr "Platobná kalkulačka Home Credit"
+
+msgid "NoVatLaw"
+msgstr "Nie je možné uplatniť odpočet DPH - osobitný režim DPH, podľa § 66 zákona č. 222/2004 Z.z (0% DPH)"
+
+msgid "NoVatLaw2"
+msgstr "Tovar z výkupu"
+
+msgid "Set Reminder"
+msgstr "Nastaviť stráženie"
+
+msgid "I want to be informed"
+msgstr "Chcem byť informovaný"
+
+msgid "Check available"
+msgstr "Keď bude tovar skladom"
+
+msgid "Check price"
+msgstr "Pri znížení ceny pod"
+
+msgid "incl. VAT"
+msgstr "s DPH"
+
+msgid "By Email to"
+msgstr "Na Email"
+
+msgid "Confirm"
+msgstr "Potvrdiť"
+
+msgid "Cancel"
+msgstr "Zavrieť"
+
+msgid "Watching was saved."
+msgstr "Stráženie bolo uložené."
+
+msgid "Export selected"
+msgstr "Exportovať vybrané"
+
+msgid "Heureka Category"
+msgstr "Heureka kategória"
+
+msgid "--- No Category ---"
+msgstr "--- Bez kategórie ---"
+
+msgid "Most searched"
+msgstr "Najhľadanejší"
+
+msgid "Searched products"
+msgstr "Hľadané tovary"
+
+msgid "Searched terms"
+msgstr "Hľadané výrazy"
+
+msgid "Recommend"
+msgstr "Doporučiť známému"
+
+msgid "Recommend has been send."
+msgstr "Doporučenie bolo odosláno."
+
+msgid "Percent Price"
+msgstr "Percentuálná cena"
+
+msgid "If percentage is set than price will be zero."
+msgstr "Ak je nastavená percentuálna cena, bude základná cena nulová."

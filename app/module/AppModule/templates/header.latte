@@ -1,0 +1,74 @@
+	{block header}
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN TOP NAVIGATION BAR -->
+    <div class="page-header-inner">
+
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a n:href="this">
+				<img src="{$basePath}/images/logo/logo_admin.png" alt="logo" width="150" class="logo-default"/>
+			</a>
+            <div class="menu-toggler sidebar-toggler" data-url="{link toggleSidebar!}"></div>
+        </div>
+        <!-- END LOGO -->
+
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+				
+				<!-- BEGIN LANGUAGE BAR -->
+				<li class="dropdown dropdown-language" n:if="$user->loggedIn">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+						<img alt="{_locale_$lang}" src="{$basePath}/assets/global/img/flags/{$lang}.png">
+						<span class="langname">{_locale_$lang}</span> <i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-default">
+						{foreach $allowedLanguages as $locale}
+							{var $code = substr($locale,0,2)}
+							<li n:if="$code !== $lang">
+								<a n:href="this locale => $code, overwrite => yes">
+								<img alt="{_locale_$code}" src="{$basePath}/assets/global/img/flags/{$code}.png" />{_locale_$code}</a>
+							</li>
+						{/foreach}
+					</ul>
+				</li>
+				<!-- END LANGUAGE BAR -->
+
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown dropdown-user" n:if="$user->loggedIn">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img alt="avatar" src="{$basePath}/assets/admin/img/avatar_small.png"/>
+                        <span class="username">{$user->getIdentity()->mail}</span> <i class="fa fa-angle-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="javascript:;" id="trigger_fullscreen"><i class="icon-size-fullscreen"></i> {_'Full Screen'}</a>
+                        </li>
+                        <!--<li class="divider"></li>-->
+                        <li>
+                            <a n:href="signOut!"><i class="icon-logout"></i> {_'Sign out'}</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+				
+                <li class="dropdown dropdown-quick-sidebar-toggler" n:if="$user->loggedIn">
+                    <a n:href="signOut!" class="dropdown-toggle" title="{_'Sign out'}">
+                        <i class="icon-logout"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<div class="clearfix"></div>

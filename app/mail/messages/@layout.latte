@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>{$mail->subject}</title>
+        <style>
+            body {
+                font-family: Verdana,Tahoma,Arial,Helvetica,Chicago,Sans-serif;
+                font-size: 15px;
+            }
+        </style>
+    </head>
+    <body bgcolor="#ECECEC">
+        <div text="#000000" bgcolor="#ECECEC" style="font-family:Verdana,Tahoma,Arial,Helvetica,Chicago,Sans-serif;font-size:15px;margin:0px;padding:0px;background:#ececec">
+            <table width="100%" border="0" cellspacing="0" cellpadding="20" bgcolor="#ECECEC">
+                <tbody>
+                    <tr>
+                        <td style="padding: 24px;">
+                            <table width="800" border="0" cellspacing="0" cellpadding="24" align="center" bgcolor="white">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding: 24px;">
+                                            <table width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #ececec;padding-bottom:6px">
+                                                <tbody>
+                                                    <tr>
+                                                        <td align="left">
+                                                            <a n:href="{$colon}Front:Newsletter:default" target="_blank">
+                                                                <img src="{$baseUrl}/images/mail/logo-order.png" alt="{*$shop->name*}">
+                                                            </a>
+                                                        </td>
+                                                        <td align="right">
+															{ifset #subtitle}
+																{include #subtitle}
+															{/ifset}
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											<br>
+											<br>
+
+											<div id="email-content" contenteditable="true">
+												{ifset #content}
+													{include #content}
+												{/ifset}
+											</div>
+
+											<br>
+											<br>
+											<br>
+											<br>
+
+											{include 'footer.latte'}
+											{ifset $subscriber}
+												<br>
+												<table width="100%" cellpadding="0" cellspacing="0">
+													<tbody>
+														<tr>
+															<td align="center" style="font-size:11px;">
+																{capture $ahref}<a n:href="{$colon}Front:Newsletter:unsubscribe, email => $subscriber->mail, token => $subscriber->token">{/capture}
+																	{_newsletter.message.base.layout.unsubscribe, [ahref => $ahref]|noescape}<br>
+																	<a n:href="{$colon}Front:Newsletter:show $message->id, locale => $locale">{_newsletter.message.base.layout.webview}</a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											{/ifset}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

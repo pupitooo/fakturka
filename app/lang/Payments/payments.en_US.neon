@@ -1,0 +1,15 @@
+shipping:
+	personal: 'Personal'
+	czech_post: 'Czech Post'
+	slovak_post: 'Slovak Post'
+	dpd: 'DPD'
+	ppl: 'PPL'
+payment:
+	personal: 'Personal'
+	on_delivery: 'On Delivery'
+	bank_account: 'Bank Account'
+	card_payment: 'Card payment'
+	homecredit_sk: 'By Home Credit'
+
+form:
+	select: '--- Select for change ---'

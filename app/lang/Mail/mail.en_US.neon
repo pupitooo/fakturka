@@ -1,0 +1,42 @@
+subject:
+	forgotten: 'Lost password'
+	createRegistration: 'Your registration'
+	verify: 'Verify your e-mail'
+	changeStateOrder: 'Your order #%id%'
+	changePaymentOrder: 'Payment order #%id%'
+	createOrder: 'Your order #%id%'
+	createOrderShop: 'New order #%id%'
+	unfinished: 'Unfinished order'
+	available: 'Stored product'
+	loweredPrice: 'Change price of product'
+	recommend: 'I have great tip for you on %name%'
+basket:
+	salutation: 'Hello...'
+	unfinished: 'They say that in life we do not regret the things that we have done, but those we do not tried. Perhaps your incomplete order is not one of them. But you can still change it!'
+	subtitle: 'If the order does not plan to continue, nothing happens, we will release it to other interested parties.'
+	continue: 'Continue in order'
+order:
+	salutation: 'Dear customer'
+	headline: 'Order #%number%'
+	weWillInformYou: 'About the process you will be informed by e-mail.'
+	shopNotice: 'You have new order on your web %name%.'
+	change:
+		done:
+			successfullyCompleted: 'Your order has been successfully completed.'
+			lookingForward: 'We are looking forward to your next purchase.'
+		storno:
+			wasCanceled: 'Your order has been canceled.'
+			contactUs: 'In case of any discrepancy, please contact us.'
+		expeded:
+			hasBeenExpeded: 'Your order has been expeded.'
+		payment:
+			successfully: 'Your order has been successfully payed.'
+	new:
+		recieved: 'thank you for your purchase, we have received your order correctly.'
+watchdog:
+	salutation: 'Hello...'
+	available: 'just now has been placed in storage product for which you have expressed interest. We are happy to allow you purchase on our website.'
+	loweredPrice: 'just now there was a reduction in prices below the price you want. We are happy to allow the purchase at this price.'
+	visit: 'Go to product'
+recommend:
+	visit: 'Go to product'

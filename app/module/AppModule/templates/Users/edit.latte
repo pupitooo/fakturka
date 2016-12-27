@@ -1,0 +1,86 @@
+{block pageTitle}
+{_'Users'}
+{/block}
+
+{block breadcrumbItems}
+<li>
+	<a n:href="Users:">{_'Users'}</a>
+</li>
+<li>
+	<a n:href="this">
+		{if $isAdd}
+			{_'Add'}
+		{else}
+			{_'Edit'}
+		{/if}
+	</a>
+</li>
+{/block}
+
+{block content}
+<div class="row">
+	<div class="col-md-6">
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-edit"></i>
+					<span class="caption-subject">
+						{if $isAdd}
+							{_'Add User'}
+						{else}
+							{_'Edit User'}
+						{/if}
+					</span>
+				</div>
+				<div class="actions">
+				</div>
+			</div>
+			<div class="portlet-body form">
+				{control userForm}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6" n:if="!$userEntity->isNew()">
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-building"></i>
+					<span class="caption-subject">
+						{_'Address'}
+					</span>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<fieldset class="adresses">
+					<div class="row">
+						<div class="col-md-4 col-sm-6 block" n:if="$userEntity->billingAddress">
+							<h5>{_'cart.order.invoiceAddress'}</h5>
+							<p>
+								{$userEntity->billingAddress->format()|noescape}<br />
+								<br />
+								{_'cart.form.ico'}: {$userEntity->billingAddress->ico}<br />
+								{_'cart.form.dic'}: {$userEntity->billingAddress->dic}<br />
+								{_'cart.form.icoVat'}: {$userEntity->billingAddress->icoVat}<br />
+							</p>
+						</div>
+						<div class="col-md-4 col-sm-6 block" n:if="$userEntity->shippingAddress">
+							<h5>{_'cart.order.shippingAddress'}</h5>
+							<p>
+								{$userEntity->shippingAddress->format()|noescape}
+							</p>
+						</div>
+						<div class="col-md-4 col-sm-6 block">
+							<h5>{_'cart.order.contact'}</h5>
+							<p>
+								{_'Mail'}: {$userEntity->mail}<br />
+								{if $userEntity->billingAddress}
+									{_'Phone'}: {$userEntity->billingAddress->phone}<br />
+								{/if}
+							</p>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>

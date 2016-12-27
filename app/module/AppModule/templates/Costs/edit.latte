@@ -1,0 +1,50 @@
+{block pageTitle}
+	{if $cost->id}
+		{_'Cost #%number%', ['number' => $cost->id]}
+	{else}
+		{_'New Cost'}
+	{/if}
+{/block}
+
+{block breadcrumbItems}
+	<li>
+		<a n:href="Costs:">{_'Costs'}</a>
+	</li>
+	<li>
+		<a n:href="this">
+			{if $cost->id}
+				{_'Edit Cost #%number%', ['number' => $cost->id]}
+			{else}
+				{_'New Cost'}
+			{/if}
+		</a>
+	</li>
+{/block}
+
+{block content}
+	<div class="row">
+		<div class="col-md-6">
+			{include change}
+		</div>
+	</div>
+{/block}
+
+{define change}
+	<div class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="fa fa-money"></i>
+				<span class="caption-subject">
+				{_'Cost'}
+			</span>
+			</div>
+		</div>
+		<div class="portlet-body form">
+			<div class="row">
+				<div class="col-md-12">
+					{control costEdit}
+				</div>
+			</div>
+		</div>
+	</div>
+{/define}

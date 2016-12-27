@@ -1,0 +1,9 @@
+extensions:
+	translation: Kdyby\Translation\DI\TranslationExtension
+
+translation:
+	default: cs
+	fallback: [cs, cs_CZ]
+	whitelist: [cs, sk, en]
+	resolvers:
+		header: off

@@ -1,0 +1,42 @@
+{form form}
+	{? $form->render('begin')}
+
+	<div class="alert alert-danger" n:if="$form->errors">
+		<button class="close" data-close="alert"></button>
+		{foreach $form->errors as $error}
+			<span>{$error}</span><br n:if="!$iterator->last"/>
+		{/foreach}
+	</div>
+
+	<div class="form-body">
+		{var buttons = []}
+		{foreach $form->getControls() as $control}
+			{continueIf $control->getOption('rendered') || $control instanceof Nette\Forms\Controls\HiddenField}
+			{if $control instanceof Nette\Forms\Controls\Button}
+				{? $buttons[] = $control}
+			{elseif $control instanceof Nette\Forms\Controls\TextInput}
+				{include items, form => $form}
+			{else}
+				{!$form->renderer->renderPair($control)}
+			{/if}
+		{/foreach}
+		{if count($buttons)}
+			{!$form->renderer->renderPairMulti($buttons)}
+		{/if}
+	</div>
+
+	{? $form->render('end')}
+{/form}
+
+{define items}
+	{foreach $form['name']->getComponents() as $key => $control}
+		<div class="form-group">
+			{$form->renderer->renderLabel($control)}
+			<div class="col-md-11">
+				<div class="inline-block input-xlarge">{input $form['name'][$key]}</div>
+				<div class="inline-block input-small">{input $form['withVat'][$key]}</div>
+				<div class="inline-block input-small">{input $form['withoutVat'][$key]}</div>
+			</div>
+		</div>
+	{/foreach}
+{/define}

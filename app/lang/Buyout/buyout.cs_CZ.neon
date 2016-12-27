@@ -1,0 +1,52 @@
+# Components
+modelQuestion:
+	input:
+		price: 'Základní cena'
+		question: 'Otázka'
+		yes: 'Ano'
+		no: 'Ne'
+		save: 'Uložit'
+		add: 'Přidat'
+	required:
+		price: 'Zadejte výkupní cenu!'
+
+request:
+	input:
+		yes: 'Ano'
+		no: 'Ne'
+		email: 'E-mail'
+		fullname: 'Jméno a příjmení'
+		recapculate: 'Přepočítat'
+		send: 'Souhlasím s cenou'
+	required:
+		fullname: 'Zadejte své jméno a příjmení'
+		email: 'Zadejte svůj e-mail'
+	template:
+		price: 'Výkupní cena'
+		total: 'Celková cena'
+		new: 'Nový'
+		used: 'Používaný'
+
+# E-mail messages
+email:
+	their:
+		subject: 'Požadavek na výkup telefonu'
+		template:
+			subtitle: 'Výkup z e-shopu'
+			from: 'Vaše údaje'
+			phone: 'Telefon'
+	our:
+		subject: 'Požadavek na výkup telefonu'
+		template:
+			subtitle: 'Výkup z e-shopu'
+			from: 'Zákazník'
+			phone: 'Telefon'
+	template:
+		model: 'Model' 
+		summary: 'Výkupní cena'
+		state: 'Stav'
+		new: 'Nový'
+		used: 'Používaný'
+		answer:
+			y: 'Ano'
+			n: 'Ne'

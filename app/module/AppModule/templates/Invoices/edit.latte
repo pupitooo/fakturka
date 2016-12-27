@@ -1,0 +1,62 @@
+{block pageTitle}
+	{_'Invoice #%number%', ['number' => $invoice->id]}
+{/block}
+
+{block breadcrumbItems}
+	<li>
+		<a n:href="Invoices:">{_'Invoices'}</a>
+	</li>
+	<li>
+		<a n:if="$invoice->id" n:href="show $invoice->id">{_'Invoice #%number%', ['number' => $invoice->id]}</a>
+		<a n:if="!$invoice->id" n:href="this">{_'Edit Invoice #%number%', ['number' => $invoice->id]}</a>
+	</li>
+{/block}
+
+{block content}
+	<div class="row">
+		<div class="col-md-4">
+			{include change}
+		</div>
+		<div class="col-md-8">
+			{include items}
+		</div>
+	</div>
+{/block}
+
+{define change}
+	<div class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="fa fa-building"></i>
+				<span class="caption-subject">
+				{_'Recipient'}
+			</span>
+			</div>
+		</div>
+		<div class="portlet-body form">
+			<div class="row">
+				<div class="col-md-6">
+					{control invoiceEdit}
+				</div>
+			</div>
+		</div>
+	</div>
+{/define}
+
+{define items}
+	<div class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="fa fa-edit"></i>
+				<span class="caption-subject">
+				{_'Edit Items'}
+			</span>
+			</div>
+			<div class="actions">
+			</div>
+		</div>
+		<div class="portlet-body form">
+			{control invoiceItemsEdit}
+		</div>
+	</div>
+{/define}

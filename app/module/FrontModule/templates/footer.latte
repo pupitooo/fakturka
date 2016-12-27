@@ -1,0 +1,50 @@
+{block footer}
+
+<!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+	<div class="container">
+		<div class="row">
+			<!-- BEGIN BOTTOM ABOUT BLOCK -->
+			<div class="col-md-4 col-sm-6 pre-footer-col">
+				<h2>{$pageInfo->projectName}</h2>
+				<p>
+					{$pageInfo->description}
+				</p>
+			</div>
+
+			<!-- END BOTTOM ABOUT BLOCK -->
+
+			<!-- BEGIN BOTTOM CONTACTS -->
+			<div class="col-md-4 col-sm-6 pre-footer-col">
+
+				<h2>{_'Our Contacts'}</h2>
+				<address class="margin-bottom-40">
+					<address class="margin-bottom-10">
+						<strong>{$companyInfo->address->company}</strong><br>
+						{$companyInfo->address->street}<br>
+						{$companyInfo->address->zip} {$companyInfo->address->city}<br>
+						IČO: {$companyInfo->company->ico}<br>
+						DIČ: {$companyInfo->company->dic}<br>
+					</address>
+				</address>
+			</div>
+			<!-- END BOTTOM CONTACTS -->
+		</div>
+		<hr>
+		<div class="row">
+			<!-- BEGIN SOCIAL ICONS -->
+			<div class="col-md-6 col-sm-6">
+				<ul class="social-icons">
+					<li><a class="facebook" data-original-title="facebook" href="https://facebook.com/pupitooo"></a></li>
+					<li><a class="twitter" data-original-title="twitter" href="https://twitter.com/PetrPoupe"></a></li>
+					<li><a class="googleplus" data-original-title="googleplus" href="https://plus.google.com/u/0/+PupeDupe"></a></li>
+					<li><a class="linkedin" data-original-title="linkedin" href="https://www.linkedin.com/in/petr-poup%C4%9B-39589036"></a></li>
+					<li><a class="youtube" data-original-title="youtube" href="https://www.youtube.com/channel/UC6iQWGtNbBGBEvUxifeJleA"></a></li>
+					<li><a class="skype" data-original-title="skype" href="https://skype.com/pupitooo.."></a></li>
+				</ul>
+			</div>
+			<!-- END SOCIAL ICONS -->
+		</div>
+	</div>
+</div>
+<!-- END PRE-FOOTER -->

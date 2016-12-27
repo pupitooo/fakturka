@@ -1,0 +1,299 @@
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="cs">
+	<title></title>
+</head>
+
+<body>
+<style type="text/css">
+	body {
+		font-family: Arial;
+	}
+
+	table {
+		font-size: 12px;
+	}
+</style>
+<div>
+	<div style="border-bottom: 2px solid #b9b9b9; color: #1A5DAC; font-weight: bold; font-size: 18px;">
+		<table style="width: 100%">
+			<tr>
+				<td style="width: 33%"></td>
+				<td style="width: 33%; text-align: center; color: #1A5DAC; font-size: 20px;">{_'invoice'}</td>
+				<td style="width: 33%; text-align: right; color: #1A5DAC; font-size: 16px;">{_'number', NULL, ['id' => $invoice->id]}</td>
+			</tr>
+		</table>
+	</div>
+
+	<table style="vertical-align: text-top; margin-top: 5px;">
+		<tr>
+			<td width="50%">
+				<table style="border: 1px solid white;">
+					<tr>
+						<td width="350" style="padding: 10px;">
+							<span style="color: #1A5DAC; font-weight: bold; font-size: 12px;">
+								{_'seller'}:
+							</span>
+							<table style="margin-left: 5px; margin-top: 10px">
+								<tr>
+									<td style="font-weight: bold;">
+										{$invoice->billingAddress->name}
+									</td>
+								</tr>
+								<tr>
+									<td>{$invoice->billingAddress->street}</td>
+								</tr>
+								<tr>
+									<td>{$invoice->billingAddress->cityFormat}</td>
+								</tr>
+								<tr>
+									<td>{$invoice->billingAddress->countryFormat}</td>
+								</tr>
+								<tr>
+									<td>
+										<table style="margin-left: -2px; margin-top: 8px; margin-bottom: 8px">
+											<tr>
+												<td>{_'ico'}:</td>
+												<td style="padding-left: 5px">{$invoice->billingAddress->ico}</td>
+											</tr>
+											<tr n:if="$invoice->vatPayer">
+												<td>{_'dic'}:</td>
+												<td style="padding-left: 5px">{$invoice->billingAddress->dic}</td>
+											</tr>
+											<tr n:if="!$invoice->vatPayer">
+												<td colspan="2">{_'nonPayer'}</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td style="font-weight: normal; font-size: 10px;">{_'sellerRegNote'}</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="50%" align="right">
+				<table style="border: 1px solid black;">
+					<tr>
+						<td width="350" style="padding: 10px;">
+							<span style="color: #1A5DAC; font-weight: bold; font-size: 12px;">
+								{_'buyer'}:
+							</span>
+							<table style="margin-left: 5px; margin-top: 10px">
+								<tr>
+									<td style="font-weight: bold;">
+										{$invoice->shippingAddress->name}
+									</td>
+								</tr>
+								<tr>
+									<td>{$invoice->shippingAddress->street}</td>
+								</tr>
+								<tr>
+									<td>{$invoice->shippingAddress->cityFormat}</td>
+								</tr>
+								<tr>
+									<td>{$invoice->shippingAddress->countryFormat}</td>
+								</tr>
+								<tr>
+									<td>
+										<table style="margin-left: -2px; margin-top: 8px;">
+											<tr n:if="$invoice->shippingAddress->ico">
+												<td>{_'ico'}:</td>
+												<td style="padding-left: 5px">{$invoice->shippingAddress->ico}</td>
+											</tr>
+											<tr n:if="$invoice->shippingAddress->dic">
+												<td>{_'dic'}:</td>
+												<td style="padding-left: 5px">{$invoice->shippingAddress->dic}</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<table style="margin-left: -2px; margin-top: 8px; margin-bottom: 8px">
+											<tr n:if="$invoice->shippingAddress->phone">
+												<td>{_'phone'}:</td>
+												<td style="padding-left: 5px">{$invoice->shippingAddress->phone}</td>
+											</tr>
+											<tr n:if="$invoice->shippingAddress->mail">
+												<td>{_'mail'}:</td>
+												<td style="padding-left: 5px">{$invoice->shippingAddress->mail}</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	<table style="vertical-align: text-top; margin-top: -5px; padding-bottom: 10px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd">
+		<tr>
+			<td width="50%">
+				<table style="border: 1px solid white;">
+					<tr>
+						<td width="350" style="padding-left: 10px; padding-right: 10px">
+							<span style="color: #1A5DAC; font-weight: bold; font-size: 12px;">
+								{_'payment'}:
+							</span>
+							<table style="margin-left: 5px; margin-top: 10px">
+								<tr>
+									<td>{_'paymentMethod'}:</td>
+									<td style="padding-left: 25px">{_'bankAccount'}</td>
+								</tr>
+								<tr>
+									<td>{_'accountNo'}:</td>
+									<td style="padding-left: 25px">{$bankAccount->base}</td>
+								</tr>
+								<tr>
+									<td>{_'iban'}:</td>
+									<td style="padding-left: 25px">{$bankAccount->iban}</td>
+								</tr>
+								<tr>
+									<td>{_'swift'}:</td>
+									<td style="padding-left: 25px">{$bankAccount->bic}</td>
+								</tr>
+								<tr>
+									<td><strong>{_'variableSymbol'}:</strong></td>
+									<td style="padding-left: 25px"><strong>{$invoice->id}</strong></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="50%" align="right">
+				<table>
+					<tr>
+						<td width="350" style="padding-left: 10px; padding-right: 10px">
+							<span style="color: #1A5DAC; font-weight: bold; font-size: 12px;">
+								&nbsp;
+							</span>
+							<table style="margin-left: 5px; margin-top: 10px">
+								<tr>
+									<td>{_'invoiceDate'}:</td>
+									<td style="padding-left: 25px">{$invoice->dueDate|date:'d.m.Y'}</td>
+								</tr>
+								<tr>
+									<td>{_'dueDate'}:</td>
+									<td style="padding-left: 25px">{$invoice->dueDate|date:'d.m.Y'}</td>
+								</tr>
+								<tr>
+									<td><strong>{_'supplyDate'}:</strong></td>
+									<td style="padding-left: 25px"><strong>{$invoice->supplyDate|date:'d.m.Y'}</strong></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td></td>
+								</tr>
+								<tr n:if="$invoice->rate <> 1">
+									<td>{_'rate'}:</td>
+									<td style="padding-left: 25px">1€ = {$invoice->rate} CZK</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	{var $signaturePadding => 340}
+	<div style="clear: both; margin-top: 15px;{if !$invoice->foreignBusiness} margin-bottom: 10px;{/if}">
+		<table style="width: 100%;">
+			<tr>
+				<td width="350"><strong>{_'invoiceProduct'}</strong></td>
+				<td n:if="$invoice->vatPayer" width="110" style="text-align: right;"><strong>{_'priceWithoutVat'}</strong></td>
+				<td n:if="$invoice->vatPayer" width="50" style="text-align: right;"><strong>{_'vat'}<span n:if="$invoice->foreignBusiness">*</span></strong></td>
+				<td width="80" style="text-align: right;"><strong>{if $invoice->vatPayer}{_'priceWithVat'}{else}{_'price'}{/if}</strong></td>
+			</tr>
+			{foreach $invoice->items as $item}
+				{? $signaturePadding -= 29}
+				<tr>
+					<td style="padding-top: 10px">{$item}</td>
+					<td n:if="$invoice->vatPayer" style="text-align: right;">{$item->getRawTotalPrice(FALSE)|currency:$invoice->currency}</td>
+					<td n:if="$invoice->vatPayer" style="text-align: right;">{$item->vat}</td>
+					<td style="text-align: right;">{$item->rawTotalPrice|currency:$invoice->currency}</td>
+				</tr>
+			{/foreach}
+			<tr n:if="$invoice->foreignBusiness && $invoice->vatPayer">
+				<td colspan="4" style="font-size: 10px; text-align: right; padding-top: 5px">
+					* {_'reverseChargeModeNote'}
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="border-top: 1px solid #000000; padding-top: 10px; margin-bottom: 15px;">
+		<table style="width: 100%;">
+			<tr n:if="$invoice->vatPayer">
+				<td></td>
+				<td>{_'totalWithoutVat'}:</td>
+				<td style="text-align: right;">{$invoice->getRawTotalPrice(FALSE)|currency:$invoice->currency}</td>
+			</tr>
+			<tr n:if="$invoice->vatPayer">
+				<td></td>
+				<td>{_'vatRate'} ({$item->vat}):</td>
+				<td style="text-align: right;">{$invoice->rawVatSum|currency:$invoice->currency}</td>
+			</tr>
+			<tr style="font-size: 20px;">
+				<td width="400"></td>
+				<td><strong>{if $invoice->vatPayer}{_'totalPriceVat'}{else}{_'totalPrice'}{/if}:</strong></td>
+				<td style="text-align: right;"><strong>{$invoice->rawTotalPrice|currency:$invoice->currency}</strong></td>
+			</tr>
+		</table>
+	</div>
+
+	<table style="vertical-align: text-top; margin-top: {$signaturePadding}px;">
+		<tr>
+			<td width="50%">
+				<table>
+					<tr>
+						<td width="400" style="padding: 10px;">
+							<span style="color: #1A5DAC; font-weight: bold; font-size: 12px;">
+								{_'issuedBy'}:
+							</span>
+							<table style="margin-left: 5px; margin-top: 10px">
+								<tr>
+									<td colspan="2">{$invoice->billingAddress->name}</td>
+								</tr>
+								<tr>
+									<td>{_'phone'}:</td>
+									<td>{$invoice->billingAddress->phone}</td>
+								</tr>
+								<tr>
+									<td>{_'mail'}:</td>
+									<td>{$invoice->billingAddress->mail}</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="50%" align="right">
+				<table>
+					<tr>
+						<td width="300" style="padding: 10px;">
+							<span style="color: #1A5DAC; font-weight: bold; font-size: 12px;">
+								{_'signature'}:
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-left: 50px; margin-top: -15px">
+							<img src="{$basePath}/images/signature.png" alt="{_'signature'}" />
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+</div>
+</body>
+</html>

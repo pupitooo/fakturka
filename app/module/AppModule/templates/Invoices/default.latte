@@ -1,0 +1,30 @@
+{block pageTitle}
+	{_'Invoices'}
+{/block}
+
+{block breadcrumbItems}
+	<li><span>{_'Invoices'}</span></li>
+{/block}
+
+{block content}
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-inbox"></i>
+					<span class="caption-subject">{_'Invoices'}</span>
+				</div>
+				<div class="actions">
+					<a n:href="add" class="btn btn-circle green-sharp">
+						<i class="fa fa-plus"></i>
+						{_'Add'}
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				{control invoicesGrid}
+			</div>
+		</div>
+	</div>
+</div>

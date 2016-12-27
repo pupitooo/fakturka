@@ -1,0 +1,36 @@
+{layout none}
+{contentType application/xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.11.1">
+	<DPHSHV verzePis="01.02">
+		<VetaD
+				mesic="{$confession->month}"
+				rok="{$confession->year}"
+				d_poddp="{$confession->sendDate|date:'d.m.Y'}"
+				dokument="SHV"
+				shvies_forma="R"
+				k_uladis="DPH"/>
+		<VetaP
+				titul="Ing."
+				jmeno="Petr"
+				prijmeni="Poupě"
+				ulice="Revoluční"
+				c_pop="331"
+				naz_obce="SVĚTLÁ NAD SÁZAVOU"
+				psc="58291"
+				stat="ČESKÁ REPUBLIKA"
+				dic="8703103266"
+				c_pracufo="2906"
+				typ_ds="F"
+				c_ufo="460"/>
+		<VetaR
+				c_rad="1"
+				pln_hodnota="78387"
+				por_c_stran="1"
+				k_stat="IE"
+				pln_pocet="1"
+				k_pln_eu="3"
+				c_vat="3326091DH"/>
+	</DPHSHV>
+</Pisemnost>
+

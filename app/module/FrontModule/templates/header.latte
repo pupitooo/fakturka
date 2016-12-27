@@ -1,0 +1,24 @@
+{block header}
+	<!-- BEGIN TOP BAR -->
+	<div class="pre-header">
+		<div class="container">
+			<div class="row">
+				{include 'topbar.latte'}
+			</div>
+		</div>
+	</div>
+	<!-- END TOP BAR -->
+
+	<!-- BEGIN HEADER -->
+	<div class="header">
+		<div class="container">
+			<a class="site-logo" n:href=":Front:Homepage:">
+				{$pageInfo->projectName}
+			</a>
+			<a href="javascript:void(0);" class="mobi-toggler">
+				<i class="fa fa-search"></i>
+			</a>
+		</div>
+	</div>
+	<!-- Header END -->
+{/block}

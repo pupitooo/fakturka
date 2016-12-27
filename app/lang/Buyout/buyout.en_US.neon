@@ -1,0 +1,52 @@
+# Components
+modelQuestion:
+	input:
+		price: 'Basic Price'
+		question: 'Question'
+		yes: 'Yes'
+		no: 'No'
+		save: 'Save'
+		add: 'Add'
+	required:
+		price: 'Enter buyout price!'
+
+request:
+	input:
+		yes: 'Yes'
+		no: 'No'
+		email: 'E-mail'
+		fullname: 'Full name'
+		recapculate: 'Recalculate'
+		send: 'Agree with price'
+	required:
+		fullname: 'Enter your first name and last name'
+		email: 'Enter your e-mail'
+	template:
+		price: 'Buyout price'
+		total: 'Total price'
+		new: 'New'
+		used: 'Used'
+
+# E-mail messages
+email:
+	their:
+		subject: 'Buyout request'
+		template:
+			subtitle: 'Buyout from e-shop'
+			from: 'Your details'
+			phone: 'Phone'
+	our:
+		subject: 'Buyout request'
+		template:
+			subtitle: 'Buyout from e-shop'
+			from: 'Customer'
+			phone: 'Phone'
+	template:
+		model: 'Model' 
+		summary: 'Buyout price'
+		state: 'State'
+		new: 'New'
+		used: 'Used'
+		answer:
+			y: 'Yes'
+			n: 'No'

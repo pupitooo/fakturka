@@ -1,0 +1,39 @@
+services:
+	doctrine: Kdyby\Doctrine\DI\OrmExtension
+	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	userCalllable: App\Model\Entity\UserCallable
+
+	# Facades
+	- {class: App\Model\Facade\RoleFacade, inject: yes}
+	- {class: App\Model\Facade\UserFacade, inject: yes}
+	- {class: App\Model\Facade\VatFacade, inject: yes}
+	- {class: App\Model\Facade\UriFacade, inject: yes}
+	- {class: App\Model\Facade\InvoiceFacade, inject: yes}
+	- {class: App\Model\Facade\CostFacade, inject: yes}
+	- {class: App\Model\Facade\ConfessionFacade, inject: yes}
+	- {class: App\Model\Facade\LocaleFacade, inject: yes}
+
+	# Storages
+	- {class: App\Model\Storage\SignUpStorage, inject: yes}
+
+	# Events subscribers
+	sluggSubscriber:
+		class: Knp\DoctrineBehaviors\ORM\Sluggable\SluggableSubscriber
+		arguments: [Knp\DoctrineBehaviors\Reflection\ClassAnalyzer(), FALSE, 'Knp\DoctrineBehaviors\Model\Sluggable\Sluggable']
+		tags: [kdyby.subscriber]
+	timestampSubscriber:
+		class: Knp\DoctrineBehaviors\ORM\Timestampable\TimestampableSubscriber
+		arguments: [Knp\DoctrineBehaviors\Reflection\ClassAnalyzer(), FALSE, 'Knp\DoctrineBehaviors\Model\Timestampable\Timestampable']
+		tags: [kdyby.subscriber]
+	softDeletableSubscriber:
+		class: Knp\DoctrineBehaviors\ORM\SoftDeletable\SoftDeletableSubscriber
+		arguments: [Knp\DoctrineBehaviors\Reflection\ClassAnalyzer(), FALSE, 'Knp\DoctrineBehaviors\Model\SoftDeletable\SoftDeletable']
+		tags: [kdyby.subscriber]
+	blameableSubscriber:
+		class: Knp\DoctrineBehaviors\ORM\Blameable\BlameableSubscriber
+		arguments: [Knp\DoctrineBehaviors\Reflection\ClassAnalyzer(), FALSE, 'Knp\DoctrineBehaviors\Model\Blameable\Blameable', @userCalllable, 'App\Model\Entity\User']
+		tags: [kdyby.subscriber]
+	loggableSubscriber:
+		class: Knp\DoctrineBehaviors\ORM\Loggable\LoggableSubscriber
+		arguments: [Knp\DoctrineBehaviors\Reflection\ClassAnalyzer(), FALSE, ['Tracy\Debugger', 'log']]
+		tags: [kdyby.subscriber]

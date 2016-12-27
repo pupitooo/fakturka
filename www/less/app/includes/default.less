@@ -1,0 +1,60 @@
+@import "../definitions.less";
+
+.page-header.navbar .page-logo .logo-default {
+	margin: 0 0 0 0;
+}
+
+.table.vertical-middle {
+	tr {
+		td {
+			vertical-align: middle;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.form-horizontal {
+		.form-group {
+			& > div {
+				padding-left: 0px;
+			}
+		}
+	}
+}
+
+.form-group {
+	.noUi-control {
+		margin-left: 24px;
+		margin-right: 24px;
+		&.hasPips {
+			margin-top: 25px;
+		}
+	}
+}
+
+#dependentSelect_load {
+	display: none;
+}
+
+.spinner-buttons.disabled {
+	cursor: not-allowed;
+}
+.select2-container--default.select2-container--disabled .select2-search input {
+	background-color: #eee !important;
+}
+
+.question-set {
+	.col-input:not(:last-child) {
+		padding-bottom: 0px !important;
+	}
+}
+input {
+	&.typeahead {
+		color: #333;
+		border: 1px solid #e5e5e5;
+		font-size: 13px;
+		&:focus {
+			border: 1px solid #999;
+		}
+	}
+}

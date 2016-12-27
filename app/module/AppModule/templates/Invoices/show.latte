@@ -1,0 +1,195 @@
+{block pageTitle}
+	{_'Invoices #%number%', ['number' => $order->id]}
+{/block}
+
+{block breadcrumbItems}
+	<li>
+		<a n:href="Invoices:">{_'Invoices'}</a>
+	</li>
+	<li>
+		<a n:href="edit $invoice->id">{_'Invoice #%number%', ['number' => $invoice->id]}</a>
+	</li>
+{/block}
+
+{block content}
+	<div class="invoice">
+		<div class="row invoice-logo">
+			<div class="col-xs-6 invoice-logo-space">
+				<a n:href="pdf $invoice->id" target="_blank" class="btn btn-lg blue">
+					{_'PDF'}
+					<i class="fa fa-print"></i>
+				</a>
+			</div>
+			<div class="col-xs-6">
+				<p>
+					#{$invoice} / {$invoice->dueDate|date:'d F Y'}
+					<span class="muted">
+						{_'Podnikatel zapsán v živ.rejstříku MÚ Světlá nad Sázavou'}
+					</span>
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-xs-4">
+				<h3>{_'Reciever'}:</h3>
+				{$invoice->shippingAddress->format()|noescape}<br/>
+				<br/>
+				<ul class="list-unstyled">
+					<li>
+						{_'cart.form.ico'}: {$invoice->shippingAddress->ico}
+					</li>
+					<li>
+						{_'cart.form.dic'}: {$invoice->shippingAddress->dic}
+					</li>
+				</ul>
+				<br/>
+				<ul class="list-unstyled">
+					<li n:if="$invoice->shippingAddress->phone">
+						{_'cart.form.phone'}: {$invoice->shippingAddress->phone}
+					</li>
+					<li n:if="$invoice->shippingAddress->mail">
+						{_'cart.form.mail'}: {$invoice->shippingAddress->mail}
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4">
+				<h3>{_'Seller'}:</h3>
+				{$invoice->billingAddress->format()|noescape}<br/>
+				<br/>
+				<ul class="list-unstyled">
+					<li>
+						{_'cart.form.ico'}: {$invoice->billingAddress->ico}
+					</li>
+					<li n:if="$invoice->vatPayer">
+						{_'cart.form.dic'}: {$invoice->billingAddress->dic}
+					</li>
+				</ul>
+				<br/>
+				<ul class="list-unstyled">
+					<li n:if="$invoice->billingAddress->phone">
+						{_'cart.form.phone'}: {$invoice->billingAddress->phone}
+					</li>
+					<li n:if="$invoice->billingAddress->mail">
+						{_'cart.form.mail'}: {$invoice->billingAddress->mail}
+					</li>
+				</ul>
+			</div>
+			<div class="col-xs-4 invoice-payment">
+				<h3>Payment Details:</h3>
+				<table class="details">
+					<tbody>
+					<tr>
+						<th>{_'Payment method'}:</th>
+						<td>{_'bank account'}</td>
+					</tr>
+					<tr>
+						<th>{_'Account No.'}:</th>
+						<td>{$bankAccount->base}</td>
+					</tr>
+					<tr>
+						<th>{_'IBAN'}:</th>
+						<td>{$bankAccount->iban}</td>
+					</tr>
+					<tr>
+						<th>{_'SWIFT'}:</th>
+						<td>{$bankAccount->bic}</td>
+					</tr>
+					<tr>
+						<th>{_'Variable symbol'}:</th>
+						<td><strong>{$invoice->id}</strong></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="separator">&nbsp;</td>
+					</tr>
+					<tr>
+						<th>{_'Invoice Date'}:</th>
+						<td>{$invoice->dueDate|date:'d.m.Y'}</td>
+					</tr>
+					<tr>
+						<th>{_'Payment due Date'}:</th>
+						<td>{$invoice->dueDate|date:'d.m.Y'}</td>
+					</tr>
+					<tr>
+						<th>{_'Supply Date'}:</th>
+						<td><strong>{$invoice->supplyDate|date:'d.m.Y'}</strong></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="separator">&nbsp;</td>
+					</tr>
+					<tr n:if="$invoice->rate <> 1">
+						<th>{_'Rate'}:</th>
+						<td>1€ = {$invoice->rate} CZK</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-striped table-hover items">
+					<thead>
+					<tr>
+						<th class="id">
+							{_'#'}
+						</th>
+						<th class="name">
+							{_'Item'}
+						</th>
+						<th class="quantity">
+							{_'Quantity'}
+						</th>
+						<th class="vat" n:if="$invoice->vatPayer">
+							{_'VAT'}
+						</th>
+						<th class="sum"></th>
+						<th class="total">
+							{_'Total'}
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr n:foreach="$invoice->items as $item">
+						<td class="id">
+							{$iterator->counter}
+						</td>
+						<td class="name">
+							{$item}
+						</td>
+						<td class="quantity">
+							{$item->quantity}
+						</td>
+						<td class="vat" n:if="$invoice->vatPayer">
+							{$item->vat}
+						</td>
+						<td class="sum"></td>
+						<td class="total">
+							{$item->rawTotalPrice|currency:$invoice->currency}
+						</td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr n:if="$invoice->vatPayer">
+						<td colspan="4" rowspan="4"></td>
+						<th>{_'Total amount excl. VAT'}:</th>
+						<td>{$invoice->getRawTotalPrice(FALSE)|currency:$invoice->currency}</td>
+					</tr>
+					<tr n:if="$invoice->vatPayer && $item->vat->value">
+						<th>{_'VAT Rate'}:</th>
+						<td>{$invoice->rawVatSum|currency:$invoice->currency}</td>
+					</tr>
+					<tr n:if="$invoice->vatPayer">
+						<th>{_'VAT'}:</th>
+						<td>{$item->vat}</td>
+					</tr>
+					<tr>
+						<td n:if="!$invoice->vatPayer" colspan="3"></td>
+						<th>{_'Total amount to pay'}:</th>
+						<td><strong>{$invoice->rawTotalPrice|currency:$invoice->currency}</strong></td>
+					</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+{/block}

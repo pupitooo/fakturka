@@ -1,0 +1,62 @@
+{block pageTitle}
+	{_'Confession for %id%', ['id' => $confession]}
+{/block}
+
+{block breadcrumbItems}
+	<li>
+		<a n:href="Vat: date('Y')">{_'Vat'}</a>
+	</li>
+	<li>
+		<a n:href="this">
+			{_'Confession for %id%', ['id' => $confession]}
+		</a>
+	</li>
+{/block}
+
+{block content}
+	<div class="row">
+		<div class="col-md-6">
+			<div class="list-group">
+				<a n:href="confessionXml month => $confession->accountDate->format('m'), year => $confession->accountDate->format('Y')"
+						target="_blank"
+						class="list-group-item">
+					<h4 class="list-group-item-heading">{_'Přiznání k dani'}</h4>
+					<p class="list-group-item-text">
+						{_'Přiznání k dani z přidané hodnoty platné od 1.1.2011 (EPO2)'}
+					</p>
+				</a>
+				<a n:if="$hasSummaryReport"
+						n:href="summaryReportXml month => $confession->accountDate->format('m'), year => $confession->accountDate->format('Y')"
+						target="_blank"
+						class="list-group-item">
+					<h4 class="list-group-item-heading">{_'Souhrnné hlášení'}</h4>
+					<p class="list-group-item-text">
+						{_'Souhrnné hlášení VIES (EPO2)'}
+					</p>
+				</a>
+				<a n:if="$hasCheckReport"
+						n:href="checkReportXml month => $confession->accountDate->format('m'), year => $confession->accountDate->format('Y')"
+						target="_blank"
+						class="list-group-item">
+					<h4 class="list-group-item-heading">{_'Kontrolní hlášení'}</h4>
+					<p class="list-group-item-text">
+						{_'Kontrolní hlášení DPH platné od 1.1.2016 (EPO2)'}
+					</p>
+				</a>
+			</div>
+
+			<div class="portlet">
+				<div class="portlet-title">
+					<div class="caption">
+						<i class="fa fa-edit"></i>
+						{_'Confession'}
+					</div>
+				</div>
+				<div class="portlet-body">
+					{control confessionEdit}
+				</div>
+			</div>
+
+		</div>
+	</div>
+{/block}

@@ -1,0 +1,42 @@
+services:
+	Permission:
+		class: Nette\Security\Permission
+		setup:
+			# Roles
+			- addRole('guest')
+			- addRole('signed', 'guest')
+			- addRole('user', 'signed')
+			- addRole('admin', 'user')
+			- addRole('superadmin', 'admin')
+
+			# Resources
+			- addResource('myAccount')
+
+			- addResource('dashboard')
+			- addResource('examples')
+			- addResource('invoices')
+			- addResource('profile')
+			- addResource('service')
+			- addResource('settings')
+			- addResource('users')
+			- addResource('addressBook')
+			- addResource('costs')
+			- addResource('vat')
+			- addResource('images')
+
+			# Privilegies
+			- deny('guest')
+
+			- allow('signed', 'profile', ['default', 'settings', 'delete'])
+
+			- allow('user', 'myAccount')
+
+			- allow('admin', 'dashboard')
+			- allow('admin', 'invoices')
+			- allow('admin', 'costs')
+			- allow('admin', 'vat')
+			- allow('admin', 'settings')
+			- allow('admin', 'users')
+			- allow('admin', 'images')
+
+			- allow('superadmin') # Full access for superadmin

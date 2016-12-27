@@ -1,0 +1,97 @@
+{block pageTitle}
+	{_'Vat'}
+{/block}
+
+{block breadcrumbItems}
+	<li><span>{_'Vat'}</span></li>
+{/block}
+
+{block content}
+<div class="row">
+	<div class="col-md-12">
+		<ul class="nav nav-pills">
+			<li n:foreach="$years as $year" n:class="$activeYear == $year ? active">
+				<a n:href="this $year">{$year}</a>
+			</li>
+			<li n:class="!$activeYear ? active">
+				<a n:href="this NULL">{_'All'}</a>
+			</li>
+		</ul>
+
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-institution"></i>
+					{_'Vat'}
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="row margin-bottom-40">
+
+					<div class="col-md-3" n:foreach="$months as $month">
+						{var confession => $confessionFacade->getConfessionByDate($month)}
+						<div n:class="pricing, hover-effect, $iterator->first ? pricing-active">
+							<div class="pricing-head">
+								<h3>{$month|date:'F Y'}</h3>
+								<h4>
+									{$invoiceFacade->getForMonthSum($month, FALSE)|asCurrency}<i>{$currencySymbol}</i>
+									<span>{$invoiceFacade->getForMonthSum($month)|currency} {_'cart.withoutVat'}</span>
+								</h4>
+							</div>
+							<ul class="pricing-content list-unstyled">
+								{var outlet => $invoiceFacade->getForMonthVatSum($month)}
+								{var recieve => $costFacade->getForMonthVatSum($month)}
+								{var send => $recieve - $outlet}
+								<li>
+									<i class="fa fa-dollar"></i>
+									{$outlet|currency}
+									{_'odvedu na DPH'}
+								</li>
+								<li>
+									<i class="fa fa-shopping-cart"></i>
+									{$recieve|currency}
+									{_'minus DPH za nákupy'}
+								</li>
+								<li>
+									<i class="fa fa-send"></i>
+									<span n:class="$send > 0 ? font-green, $send < 0 ? font-red">
+										{abs($send)|currency}
+										{if $send > 0}
+											{_'mi přijde'}
+										{elseif $send < 0}
+											{_'zaplatím'}
+										{/if}
+									</span>
+								</li>
+								<li>
+									<i class="fa fa-money"></i>
+									<a n:href="Costs: month => $month->format('m'), year => $month->format('Y')">
+										{_'%count% costs', $costFacade->getForMonthCount($month)}
+									</a>
+									| {$costFacade->getForMonthSum($month)|currency} {_'cart.withoutVat'}
+								</li>
+								<li>
+									<a n:href="Invoices: month => $month->format('m'), year => $month->format('Y')">
+										<i class="fa fa-inbox"></i>{_'%count% Invoices', $invoiceFacade->getForMonthCount($month)}
+									</a>
+									| {$invoiceFacade->getForMonthSum($month)|currency} {_'cart.withoutVat'}
+								</li>
+							</ul>
+							<div class="pricing-footer">
+								{if $today->format('Ym') > $month->format('Ym')}
+									<a n:href="edit month => $month->format('m'), year => $month->format('Y')"
+											n:class="btn, $confession ? green : yellow-crusta">
+										<i n:class="fa, $confession ? fa-edit : fa-cloud-upload"></i>
+										{if $confession}{_'Edit'}{else}{_'Send to office'}{/if}
+									</a><br/>
+									<span n:if="$confession">{_'Odesláno'} {$confession->sendDate|date:'d.m.Y'}</span>
+								{/if}
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+extensions:
+	webloader: WebLoader\Nette\Extension
+
+services:
+	cssUrlFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
+	cssMinFilter: Joseki\Webloader\CssMinFilter
+	lessFilter: WebLoader\Filter\LessFilter
+	varFilter: WebLoader\Filter\VariablesFilter([basePath=@urlScript::getBasePath()])
+
+webloader:
+	css:
+		front:
+			files:
+				- {files: ["*.less"], from: %wwwDir%/less/front/includes}
+			filters:
+				- @cssUrlFilter
+				- @cssMinFilter
+			fileFilters:
+				- @lessFilter
+
+		app:
+			files:
+				- {files: ["*.less"], from: %wwwDir%/less/app/includes}
+			filters:
+				- @cssUrlFilter
+				- @cssMinFilter
+			fileFilters:
+				- @lessFilter
+
+		print:
+			files:
+				- {files: ["*.less"], from: %wwwDir%/less/print/includes}
+			filters:
+				- @cssUrlFilter
+				- @cssMinFilter
+			fileFilters:
+				- @lessFilter

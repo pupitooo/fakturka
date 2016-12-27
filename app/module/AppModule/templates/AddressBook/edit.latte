@@ -1,0 +1,75 @@
+{block pageTitle}
+	{_'Address'}
+{/block}
+
+{block breadcrumbItems}
+	<li>
+		<a n:href="AddressBook:">{_'Address'}</a>
+	</li>
+	<li>
+		<a n:href="this">{_'Edit Address #%id%', ['id' => $address->id]}</a>
+	</li>
+{/block}
+
+{block content}
+<div class="row">
+	<div class="col-md-6">
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-edit"></i>
+					<span class="caption-subject">
+						{_'Edit Address'}
+					</span>
+				</div>
+				<div class="actions">
+				</div>
+			</div>
+			<div class="portlet-body form">
+				{control addressForm}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-building"></i>
+					<span class="caption-subject">
+						{_'Address'}
+					</span>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<fieldset class="adresses">
+					<div class="row">
+						<div class="col-md-4 col-sm-6 block" n:if="$address">
+							<h5>{_'cart.order.invoiceAddress'}</h5>
+							<p>
+								{$address->format()|noescape}<br/>
+								<br/>
+								{_'cart.form.ico'}: {$address->ico}<br/>
+								{if $address->dic}
+									{_'cart.form.dic'}: {$address->dic}
+									<span class="fa fa-check-circle font-green" n:if="$address->dicVerified"></span>
+									<span class="fa fa-times-circle font-red" n:if="!$address->dicVerified"></span>
+									<a target="_blank"
+									   href="http://ec.europa.eu/taxation_customs/vies/vatResponse.html?memberStateCode={$address->dicCode}&number={$address->dicNumber}">
+										<span class="fa fa-external-link"></span>
+										{_'VIES'}</a>
+								{/if}
+							</p>
+						</div>
+						<div class="col-md-4 col-sm-6 block">
+							<h5>{_'cart.order.contact'}</h5>
+							<p>
+								{_'Mail'}: {$address->mail}<br/>
+								{_'Phone'}: {$address->phone}<br/>
+							</p>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</div>

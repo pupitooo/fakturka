@@ -1,0 +1,43 @@
+# Components
+# !!!must have "crete:" for components with events!!!
+
+services:
+
+	# Auth
+	- {create: App\Components\Auth\ConnectManager, implement: App\Components\Auth\IConnectManagerFactory, inject: yes}
+	- {create: App\Components\Auth\FacebookConnect, implement: App\Components\Auth\IFacebookConnectFactory, inject: yes}
+	- {create: App\Components\Auth\TwitterConnect, implement: App\Components\Auth\ITwitterConnectFactory, inject: yes}
+	- {create: App\Components\Auth\SignIn, implement: App\Components\Auth\ISignInFactory, inject: yes}
+	- {create: App\Components\Auth\SignUp, implement: App\Components\Auth\ISignUpFactory, inject: yes}
+	- {create: App\Components\Auth\Forgotten, implement: App\Components\Auth\IForgottenFactory, inject: yes}
+	- {create: App\Components\Auth\Recovery, implement: App\Components\Auth\IRecoveryFactory, inject: yes}
+	- {create: App\Components\Auth\Required, implement: App\Components\Auth\IRequiredFactory, inject: yes}
+	- {create: App\Components\Auth\SetPassword, implement: App\Components\Auth\ISetPasswordFactory, inject: yes}
+
+	# Invoice
+	- {implement: App\Components\Invoice\Form\IInvoiceChangeFactory, inject: yes}
+	- {implement: App\Components\Invoice\Form\IInvoiceItemsFactory, inject: yes}
+	- {implement: App\Components\Invoice\Grid\IInvoicesGridFactory, inject: yes}
+	- {implement: App\Components\Invoice\Pdf\IInvoicePdfFactory, inject: yes}
+
+	# Cost
+	- {implement: App\Components\Cost\Form\ICostChangeFactory, inject: yes}
+	- {implement: App\Components\Cost\Grid\ICostsGridFactory, inject: yes}
+
+	# Confession
+	- {implement: App\Components\Confession\Form\IConfessionChangeFactory, inject: yes}
+
+	# Address
+	- {implement: App\Components\Address\Form\IAddressChangeFactory, inject: yes}
+	- {implement: App\Components\Address\Grid\IAddressesGridFactory, inject: yes}
+
+	# User
+	- {implement: App\Components\User\Form\IUserBasicFactory, inject: yes}
+	- {implement: App\Components\User\Form\IPersonalFactory, inject: yes}
+	- {implement: App\Components\User\Grid\IUsersGridFactory, inject: yes}
+
+	# Rate
+	- {implement: App\Components\Currency\Form\IRateFactory, inject: yes}
+
+	# Example
+	- {implement: App\Components\Example\Form\IExampleFormFactory, inject: yes}

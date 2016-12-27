@@ -1,0 +1,47 @@
+{layout none}
+{contentType application/xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.11.1">
+	<DPHDP3 verzePis="01.02">
+		<VetaD
+				mesic="{$confession->month}"
+				rok="{$confession->year}"
+				d_poddp="{$confession->sendDate|date:'d.m.Y'}"
+				trans="A"
+				c_okec="631200"
+				typ_platce="P"
+				dapdph_forma="B"
+				dokument="DP3"
+				k_uladis="DPH"/>
+		<VetaP
+				titul="Ing."
+				jmeno="Petr"
+				prijmeni="Poupě"
+				ulice="Revoluční"
+				c_pop="331"
+				naz_obce="SVĚTLÁ NAD SÁZAVOU"
+				psc="58291"
+				stat="ČESKÁ REPUBLIKA"
+				email="petr.poupe@gmail.com"
+				c_telef="775103987"
+				dic="8703103266"
+				typ_ds="F"
+				c_ufo="460"
+				c_pracufo="2906"/>
+		<Veta1
+				dan23="3203"
+				obrat23="15250"/>
+		<Veta2
+				pln_sluzby="78387"/>
+		<Veta4
+				odp_sum_nar="6013"
+				odp_tuz23_nar="6013"
+				pln23="28629"/>
+		<Veta6
+				dano="0"
+				dan_zocelk="3203"
+				dano_da="0"
+				dano_no="2810"
+				odp_zocelk="6013"/>
+	</DPHDP3>
+</Pisemnost>

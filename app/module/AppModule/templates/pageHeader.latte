@@ -1,0 +1,17 @@
+{define pageTitle}{$pageInfo->projectName}{/define}
+
+{define pageHeader}
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+	<!-- BEGIN BREADCRUMB-->
+	<ul class="page-breadcrumb breadcrumb" n:block="breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a n:href=":Front:Homepage:">{_'Home'}</a>
+		</li>
+		{block breadcrumbItems}{/block}
+	</ul>
+	<!-- END BREADCRUMB-->
+</div>
+<!-- END PAGE HEADER-->
+{/define}

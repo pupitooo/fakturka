@@ -1,0 +1,44 @@
+{block footer}
+{translator newsletter.message.base.footer}
+<table width="99%" align="center">
+    <colgroup>
+        <col width="33%">
+        <col width="33%">
+        <col width="33%">
+    </colgroup>
+    <tbody>
+        <tr>
+            <td width="27%" style="font-family:Verdana,Tahoma,Arial,Helvetica,Chicago,Sans-serif;font-size:12px;border-right:#ecece9 1px solid;margin-left:10px">
+                <img src="{$baseUrl}/images/mail/ico_home.png" alt="{_address.alt}" style="float:left" align="left" width="54" height="80"><br>
+                <div style="min-width:200px;">
+					<font color="#00275A"><b>{$companyInfo->address->company}</b></font><br>
+					{$companyInfo->address->street}<br>
+					{$companyInfo->address->zip} {$companyInfo->address->city}<br>
+				</div>
+            </td>
+
+            <td width="38%" style="font-family:Verdana,Tahoma,Arial,Helvetica,Chicago,Sans-serif;font-size:12px;border-right:#ecece9 1px solid">
+                <img src="{$baseUrl}/images/mail/ico_phone.png" alt="{_contact.alt}" style="float:left" align="left" width="54" height="80"><br>
+                <div style="min-width:230px;">
+					{_contact.label}<br>
+					<font color="#00275A"><b>{$companyInfo->contact->phone}</b></font><br>
+					<a href="mailto:{$companyInfo->contact->email}" style="text-decoration:none!important" target="_blank">
+						<font color="#00275A"><b>{$companyInfo->contact->email}</b></font><br>
+					</a>
+				</div>
+            </td>
+            <td width="35%" style="font-family:Verdana,Tahoma,Arial,Helvetica,Chicago,Sans-serif;font-size:12px">
+                <img src="{$baseUrl}/images/mail/ico_info.png" alt="{_bank.alt}" style="float:left" align="left" width="54" height="80"><br>
+				<div style="min-width:250px;">
+					{_bank.label.sk}<br>
+					<font color="#00275A" style="font-size:11px;"><b>{$companyInfo->bank->sk}</b></font>
+					<br>
+					{_bank.label.cz}<br>
+					<font color="#00275A" style="font-size:11px;"><b>{$companyInfo->bank->cz}</b></font><br>
+				</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{/translator}
+{/block}

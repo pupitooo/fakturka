@@ -1,0 +1,15 @@
+services:
+	- {class: App\ExchangeHelper, inject: yes}
+
+extensions:
+	exchangeExtension: h4kuna\Exchange\Nette\DI\ExchangeExtension
+
+exchangeExtension:
+	driver: h4kuna\Exchange\Driver\BankRates
+	currencies: {
+		czk: [decimal: 2, point: ',', thousand: ' ', mask: '1 S', symbol: 'Kč']
+		eur: [decimal: 2, point: ',', thousand: ' ', mask: '1 S', symbol: '€']
+	}
+	vat: 0
+	vatIn: false
+	vatOut: false

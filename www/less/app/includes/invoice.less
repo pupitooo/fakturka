@@ -1,0 +1,67 @@
+@import "../definitions.less";
+
+/***
+Invoice page
+***/
+
+.invoice {
+	table.items {
+		thead {
+			.id, .quantity, .vat {
+				width: 80px;
+			}
+			.name {
+				//width: 800px;
+			}
+			.sum {
+				width: 300px;
+			}
+			.total {
+				width: 200px;
+			}
+		}
+		tbody {
+			tr:last-child {
+				td {
+					border-bottom: 2px solid #ddd;
+				}
+			}
+		}
+	}
+	table:not(.details) {
+		margin: 30px 0 30px 0;
+	}
+	.details {
+		td {
+			padding-left: 10px;
+		}
+	}
+	.invoice-logo {
+		margin-bottom: 20px;
+		p {
+			padding: 5px 0;
+			font-size: 26px;
+			line-height: 28px;
+			text-align: right;
+			span {
+				display: block;
+				font-size: 14px;
+			}
+		}
+	}
+	.invoice-logo-space {
+		margin-bottom: 15px;
+	}
+	.invoice-payment {
+		strong {
+			margin-right: 5px;
+		}
+	}
+	.invoice-block {
+		text-align: right;
+		.amounts {
+			margin-top: 20px;
+			font-size: 14px;
+		}
+	}
+}
