@@ -1,7 +1,7 @@
 {layout none}
 {contentType application/xml}
 <?xml version="1.0" encoding="UTF-8"?>
-<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.11.1">
+<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.12.2">
 	<DPHDP3 verzePis="01.02">
 		<VetaD
 				mesic="{$confession->month}"
@@ -28,20 +28,23 @@
 				typ_ds="F"
 				c_ufo="460"
 				c_pracufo="2906"/>
-		<Veta1
-				dan23="3203"
-				obrat23="15250"/>
-		<Veta2
-				pln_sluzby="78387"/>
-		<Veta4
-				odp_sum_nar="6013"
-				odp_tuz23_nar="6013"
-				pln23="28629"/>
-		<Veta6
+		<Veta1 {* Zdanitelná plnění - Dodání zboží nebo poskytnutí služby s místem plnění v tuzemsku | pouze celá čísla *}
+				n:if="$confession->priznDP3_CI1 > 0"
+				obrat23="{$confession->priznDP3_CI1zaklad}"
+				dan23="{$confession->priznDP3_CI1}"/>
+		<Veta2 {* Ostatní plnění - Poskytnutí služeb s místem plnění v jiném členském státě *}
+				n:if="$confession->priznDP3_CII21 > 0"
+				pln_sluzby="{$confession->priznDP3_CII21}"/>
+		<Veta4 {* Nárok na odpočet daně *}
+				n:if="$confession->priznDP3_CIV40 > 0"
+				odp_sum_nar="{$confession->priznDP3_CIV40}"
+				odp_tuz23_nar="{$confession->priznDP3_CIV40}"
+				pln23="{$confession->priznDP3_CIV40zaklad}"/>
+		<Veta6 {* Výpočet daně *}
 				dano="0"
-				dan_zocelk="3203"
-				dano_da="0"
-				dano_no="2810"
-				odp_zocelk="6013"/>
+				dan_zocelk="{$confession->priznDP3_CVI62}"
+				odp_zocelk="{$confession->priznDP3_CVI63}"
+				dano_da="{$confession->priznDP3_CVI64}"
+				dano_no="{$confession->priznDP3_CVI65}"/>
 	</DPHDP3>
 </Pisemnost>

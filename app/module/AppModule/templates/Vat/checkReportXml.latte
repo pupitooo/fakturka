@@ -1,7 +1,7 @@
 {layout none}
 {contentType application/xml}
 <?xml version="1.0" encoding="UTF-8"?>
-<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.11.1">
+<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.12.2">
 	<DPHKH1 verzePis="01.02">
 		<VetaD
 				mesic="{$confession->month}"
@@ -25,17 +25,30 @@
 				typ_ds="F"
 				c_ufo="460"
 				c_pracufo="2906"/>
-		<VetaA4
-				c_evid_dd="2016150006"
-				zdph_44="N"
-				dppd="16.05.2016"
-				zakl_dane1="8579"
-				c_radku="1"
-				kod_rezim_pl="0"
-				dic_odb="63497221"
-				dan1="1801.59"/>
-		<VetaC
-				obrat23="8579"/>
+
+		{var counter => 0}
+		{foreach $confession->localInvoices as $invoice}
+			{if $invoice->hasOverKhLimit()}
+				{var counter += 1}
+				<VetaA4 {* Plnění, u kterých je plátce povinen přiznat daň a uskutečněná plnění v režimu přenesení daňové povinnosti - s hodnotou nad 10.000,- Kč včetně daně *}
+						c_radku="{$counter}"
+						kod_rezim_pl="0"
+						dppd="{$invoice->dueDate|date:'d.m.Y'}"
+						dic_odb="{$invoice->shippingAddress->dicNumber}"
+						c_evid_dd="{$invoice->id}"
+						zdph_44="N"
+						zakl_dane1="{$invoice->getTotalPrice(NULL, FALSE)}"
+						dan1="{$invoice->vatSum}"/>
+			{/if}
+		{/foreach}
+
+		<VetaA5 {* Plnění, u kterých je plátce povinen přiznat daň a uskutečněná plnění v režimu přenesení daňové povinnosti - s hodnotou do 10.000,- Kč včetně daně *}
+				n:if="$confession->priznKH_A5"
+				dan1="{$confession->priznKH_A5}"
+				zakl_dane1="{$confession->priznKH_A5zaklad}"/>
+
+		<VetaC {* Kontrolní řádky na Daňové přiznání k DPH *}
+				obrat23="{$confession->priznKH_C1zaklad}"/>
 	</DPHKH1>
 </Pisemnost>
 

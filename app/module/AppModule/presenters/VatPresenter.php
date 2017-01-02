@@ -61,13 +61,13 @@ class VatPresenter extends BasePresenter
 			if ($id >= $nowDate->format('Y')) {
 				$start = clone $nowDate;
 			} else {
-				$start = new DateTime('31-12-' . $id);
+				$start = new DateTime('1.12.' . $id);
 			}
 			// stop
 			if ($id <= $initDate->format('Y')) {
 				$stop = clone $initDate;
 			} else {
-				$stop = new DateTime('01-01-' . $id);
+				$stop = new DateTime('1.1.' . $id);
 			}
 		} else {
 			$start = clone $nowDate;
@@ -75,6 +75,7 @@ class VatPresenter extends BasePresenter
 		}
 
 		$moths = [];
+
 		while ($start->format('Ym') >= $stop->format('Ym')) {
 			$moths[] = new DateTime($start->format('d.m.Y'));
 			$start->sub(new DateInterval('P1M'));
@@ -97,7 +98,6 @@ class VatPresenter extends BasePresenter
 	public function actionConfessionXml($month, $year)
 	{
 		$this->getConfessionEntity($month, $year);
-		$this->template->invoices = $this->invoiceFacade->getForMonth($this->confessionEntity->accountDate);
 		$this->template->confession = $this->confessionEntity;
 	}
 
@@ -109,7 +109,6 @@ class VatPresenter extends BasePresenter
 	public function actionSummaryReportXml($month, $year)
 	{
 		$this->getConfessionEntity($month, $year);
-		$this->template->invoices = $this->invoiceFacade->getForMonth($this->confessionEntity->accountDate);
 		$this->template->confession = $this->confessionEntity;
 	}
 
@@ -121,7 +120,6 @@ class VatPresenter extends BasePresenter
 	public function actionCheckReportXml($month, $year)
 	{
 		$this->getConfessionEntity($month, $year);
-		$this->template->invoices = $this->invoiceFacade->getForMonth($this->confessionEntity->accountDate);
 		$this->template->confession = $this->confessionEntity;
 	}
 
@@ -137,10 +135,11 @@ class VatPresenter extends BasePresenter
 
 	public function renderEdit()
 	{
-		$this->template->invoices = $this->invoiceFacade->getForMonth($this->confessionEntity->accountDate);
 		$this->template->hasSummaryReport = $this->invoiceFacade->checkIfMonthHasSummaryReport($this->confessionEntity->accountDate);
 		$this->template->hasCheckReport = $this->invoiceFacade->checkIfMonthHasCheckReport($this->confessionEntity->accountDate);
 		$this->template->confession = $this->confessionEntity;
+		$this->template->invoiceFacade = $this->invoiceFacade;
+		$this->template->costFacade = $this->costFacade;
 	}
 
 	private function getConfessionEntity($month, $year)
@@ -152,6 +151,9 @@ class VatPresenter extends BasePresenter
 		if (!$this->confessionEntity) {
 			$this->confessionEntity = new Confession($month, $year);
 		}
+		$this->confessionEntity->invoices = $this->invoiceFacade->getForMonth($this->confessionEntity->accountDate);
+		$this->confessionEntity->costsSum = $this->costFacade->getForMonthSum($this->confessionEntity->accountDate);
+		$this->confessionEntity->costsVat = $this->costFacade->getForMonthVatSum($this->confessionEntity->accountDate);
 	}
 
 	// <editor-fold desc="forms">

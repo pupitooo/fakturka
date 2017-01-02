@@ -49,7 +49,7 @@ class CostsGrid extends BaseControl
 			->setSortable()
 			->setFilterText()
 			->setSuggestion();
-		$grid->getColumn('dueDate')->headerPrototype->width = '200px';
+		$grid->getColumn('dueDate')->headerPrototype->width = '130px';
 		$grid->getColumn('dueDate')->cellPrototype->style = 'text-align: center';
 
 		$grid->addColumnText('name', 'Name')
@@ -106,8 +106,30 @@ class CostsGrid extends BaseControl
 			->setSortable()
 			->setFilterText()
 			->setSuggestion();
-		$grid->getColumn('paymentDate')->headerPrototype->width = '200px';
+		$grid->getColumn('paymentDate')->headerPrototype->width = '150px';
 		$grid->getColumn('paymentDate')->cellPrototype->style = 'text-align: center';
+
+		$grid->addColumnDate('confessionDate', 'Confession date', 'd.m.Y')
+			->setCustomRender(function (Cost $item) {
+				if ($item->paymentDate) {
+					$confDate = $item->confessionDate->format('d.m.Y');
+					$confMonth = $item->confessionDate->format('m');
+					$dueMonth = $item->dueDate->format('m');
+					$dateHtml = Html::el('span')
+						->addAttributes([
+							'class' => $dueMonth === $confMonth ? 'font-green' : 'font-red'
+						])
+						->setText($confDate);
+					return $dateHtml;
+				} else {
+					return NULL;
+				}
+			})
+			->setSortable()
+			->setFilterText()
+			->setSuggestion();
+		$grid->getColumn('confessionDate')->headerPrototype->width = '150px';
+		$grid->getColumn('confessionDate')->cellPrototype->style = 'text-align: center';
 
 		$grid->addActionHref('edit', 'Edit')
 			->setIcon('fa fa-edit');

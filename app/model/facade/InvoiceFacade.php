@@ -11,6 +11,7 @@ use Nette\Utils\DateTime;
 class InvoiceFacade extends Object
 {
 
+	const YEAR_LIMIT = 400000;
 	const PREFIX = '15';
 
 	/** @var EntityManager @inject */
@@ -48,9 +49,29 @@ class InvoiceFacade extends Object
 		return $sum;
 	}
 
+	public function getForYearSum(DateTime $date, $withoutVat = TRUE)
+	{
+		$invoices = $this->getForYear($date);
+		$sum = 0;
+		foreach ($invoices as $invoice) {
+			$sum += $invoice->getTotalPrice(NULL, !$withoutVat);
+		}
+		return $sum;
+	}
+
 	public function getForMonthVatSum(DateTime $date)
 	{
 		$invoices = $this->getForMonth($date);
+		$sum = 0;
+		foreach ($invoices as $invoice) {
+			$sum += $invoice->vatSum;
+		}
+		return $sum;
+	}
+
+	public function getForYearVatSum(DateTime $date)
+	{
+		$invoices = $this->getForYear($date);
 		$sum = 0;
 		foreach ($invoices as $invoice) {
 			$sum += $invoice->vatSum;
@@ -72,9 +93,23 @@ class InvoiceFacade extends Object
 		return $invoices;
 	}
 
+	public function getForYear(DateTime $date)
+	{
+		$year = $date->format('Y');
+
+		$fromDate = new DateTime('1.1.' . $year);
+		$toDate = new DateTime('31.12.' . $year);
+
+		$invoices = $this->invoiceRepo->findBy([
+			'dueDate >=' => $fromDate,
+			'dueDate <=' => $toDate,
+		]);
+		return $invoices;
+	}
+
 	public function checkIfMonthHasSummaryReport(DateTime $date)
 	{
-		// pokud je nějaká faktura vystavena s povinností odvést DPH
+		// zda je nějaká faktura vystavena s povinností odvést DPH
 		$invoices = $this->getForMonth($date);
 		foreach ($invoices as $invoice) {
 			if ($invoice->hasInverseMode()) {
@@ -86,7 +121,7 @@ class InvoiceFacade extends Object
 
 	public function checkIfMonthHasCheckReport(DateTime $date)
 	{
-		// pokud je nějaká faktura vystavena s DPH
+		// zda je nějaká faktura vystavena s DPH
 		$invoices = $this->getForMonth($date);
 		foreach ($invoices as $invoice) {
 			if (!$invoice->hasInverseMode()) {

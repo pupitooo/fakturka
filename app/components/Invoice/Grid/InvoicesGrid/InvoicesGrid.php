@@ -46,6 +46,7 @@ class InvoicesGrid extends BaseControl
 		$grid->setModel(new Doctrine($qb, [
 			'shippingAddress' => 'a',
 			'shippingAddress.name' => 'a.name',
+			'shippingAddress.foreignBusiness' => 'a.foreignBusiness',
 		]), TRUE);
 
 		$grid->setDefaultSort([
@@ -141,6 +142,11 @@ class InvoicesGrid extends BaseControl
 			]);
 		$grid->getColumn('currency')->headerPrototype->width = '7%';
 		$grid->getColumn('locale')->cellPrototype->style = 'text-align: center';
+
+
+		$grid->addColumnBoolean('foreignBusiness', 'Foreign')
+			->setColumn('shippingAddress.foreignBusiness')
+			->setSortable();
 
 		$grid->addActionHref('edit', 'Edit')
 			->setIcon('fa fa-edit');

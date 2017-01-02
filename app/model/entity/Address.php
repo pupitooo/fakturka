@@ -206,7 +206,7 @@ class Address extends BaseEntity
 		if ($formated) {
 			$hasPrefix = preg_match('/^([A-z]+)\s*(\w+)$/', $this->dic, $match);
 			if ($hasPrefix) {
-				return $match[1] . ' ' . $match[2];
+				return $match[1] . ' ' . preg_replace('/\s/', '', $match[2]);
 			}
 		}
 		return $this->dic;
@@ -214,8 +214,7 @@ class Address extends BaseEntity
 
 	public function getDicCode()
 	{
-		$hasPrefix = preg_match('/^([A-z]+)\s*(\w+)$/', $this->dic, $match);
-		if ($hasPrefix) {
+		if (preg_match('/^([A-z]+)\s*(\w+)$/', $this->dic, $match)) {
 			return $match[1];
 		}
 		return NULL;
@@ -223,9 +222,8 @@ class Address extends BaseEntity
 
 	public function getDicNumber()
 	{
-		$hasPrefix = preg_match('/^([A-z]+)\s*(\w+)$/', $this->dic, $match);
-		if ($hasPrefix) {
-			return $match[2];
+		if (preg_match('/^([A-z]+)\s*(\w+)$/', $this->dic, $match)) {
+			return preg_replace('/\s/', '', $match[2]);
 		}
 		return NULL;
 	}

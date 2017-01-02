@@ -13,6 +13,7 @@ use App\Model\Entity\Price;
 use App\Model\Entity\Vat;
 use App\Model\Facade\VatFacade;
 use Nette\Utils\ArrayHash;
+use Nette\Utils\DateTime;
 
 class CostChange extends BaseControl
 {
@@ -43,6 +44,8 @@ class CostChange extends BaseControl
 			->setSize(DatePicker::SIZE_S)
 			->setRequired();
 		$form->addDatePicker('paymentDate', 'Payment date')
+			->setSize(DatePicker::SIZE_S);
+		$form->addDatePicker('confessionDate', 'Confession date')
 			->setSize(DatePicker::SIZE_S);
 
 		$form->addText('name', 'Name')
@@ -116,6 +119,8 @@ class CostChange extends BaseControl
 			if ($values->paymentDate) {
 				$this->cost->paymentDate = $values->paymentDate;
 			}
+
+			$this->cost->confessionDate = $values->confessionDate ? $values->confessionDate : $values->dueDate;
 		} else {
 			$form['withoutVat']->addError('Insert price without vat');
 		}
@@ -138,8 +143,9 @@ class CostChange extends BaseControl
 			'vatSum' => $this->cost->vatSum,
 			'withoutVat' => $this->cost->priceWithoutVat,
 			'withVat' => $this->cost->priceWithVat,
-			'dueDate' => $this->cost->dueDate,
-			'paymentDate' => $this->cost->paymentDate,
+			'dueDate' => $this->cost->dueDate ? $this->cost->dueDate : new DateTime(),
+			'confessionDate' => $this->cost->confessionDate ? $this->cost->confessionDate : new DateTime(),
+			'paymentDate' => $this->cost->paymentDate ? $this->cost->paymentDate : new DateTime(),
 		];
 		return $values;
 	}

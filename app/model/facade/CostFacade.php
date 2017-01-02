@@ -30,13 +30,13 @@ class CostFacade extends Object
 		$toDate->modify('last day of this month');
 
 		$costs = $this->costRepo->findBy([
-			'dueDate >=' => $fromDate,
-			'dueDate <=' => $toDate,
+			'confessionDate >=' => $fromDate,
+			'confessionDate <=' => $toDate,
 		]);
 		return $costs;
 	}
 
-	public function getForMonthSum(DateTime $date, $withoutVat= TRUE)
+	public function getForMonthSum(DateTime $date, $withoutVat = TRUE)
 	{
 		$costs = $this->getForMonth($date);
 		$sum = 0;

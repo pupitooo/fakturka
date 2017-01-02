@@ -17,6 +17,7 @@ use Nette\Utils\DateTime;
  * @property Vat $vat
  * @property float $vatSum
  * @property DateTime $dueDate
+ * @property DateTime $confessionDate
  * @property DateTime $paymentDate
  */
 class Cost extends BaseEntity
@@ -42,6 +43,9 @@ class Cost extends BaseEntity
 
 	/** @ORM\Column(type="date") */
 	protected $dueDate;
+
+	/** @ORM\Column(type="date") */
+	protected $confessionDate;
 
 	/** @ORM\Column(type="date", nullable=true) */
 	protected $paymentDate;

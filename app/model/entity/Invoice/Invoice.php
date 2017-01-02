@@ -26,6 +26,7 @@ use Nette\Utils\Strings;
  * @property Address $shippingAddress
  * @property DateTime $dueDate
  * @property-read DateTime $supplyDate
+ * @property-read float $totalPrice
  * @property DateTime $paymentDate
  */
 class Invoice extends BaseEntity
@@ -176,6 +177,11 @@ class Invoice extends BaseEntity
 	public function hasInverseMode()
 	{
 		return $this->shippingAddress->foreignBusiness;
+	}
+
+	public function hasOverKhLimit()
+	{
+		return $this->getTotalPrice() > Confession::KH_LIMIT;
 	}
 
 	public function __toString()

@@ -1,7 +1,7 @@
 {layout none}
 {contentType application/xml}
 <?xml version="1.0" encoding="UTF-8"?>
-<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.11.1">
+<Pisemnost nazevSW="EPO MF ČR" verzeSW="39.12.2">
 	<DPHSHV verzePis="01.02">
 		<VetaD
 				mesic="{$confession->month}"
@@ -23,14 +23,24 @@
 				c_pracufo="2906"
 				typ_ds="F"
 				c_ufo="460"/>
-		<VetaR
-				c_rad="1"
-				pln_hodnota="78387"
-				por_c_stran="1"
-				k_stat="IE"
-				pln_pocet="1"
-				k_pln_eu="3"
-				c_vat="3326091DH"/>
+
+		{var counter => 0}
+		{foreach $confession->foreignInvoices as $invoices}
+			{var counter += 1}
+			{var sum => 0}
+			{foreach $invoices as $invoice}
+				{var sum += $invoice->totalPrice}
+			{/foreach}
+			<VetaR {* Řádky SH *}
+					c_rad="{$counter}"
+					por_c_stran="1"
+					k_pln_eu="3"
+					k_stat="{$invoice->shippingAddress->dicCode}"
+					c_vat="{$invoice->shippingAddress->dicNumber}"
+					pln_pocet="{count($invoices)}"
+					pln_hodnota="{round($sum)}"/>
+		{/foreach}
+
 	</DPHSHV>
 </Pisemnost>
 

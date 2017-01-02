@@ -58,5 +58,56 @@
 			</div>
 
 		</div>
+
+		<div class="col-md-3">
+			<div class="pricing, hover-effect">
+				<div class="pricing-head">
+					<h3>{$confession->accountDate|date:'F Y'}</h3>
+					<h4>
+						{$invoiceFacade->getForMonthSum($confession->accountDate, FALSE)|asCurrency}<i>{$currencySymbol}</i>
+						<span>{$invoiceFacade->getForMonthSum($confession->accountDate)|currency} {_'cart.withoutVat'}</span>
+					</h4>
+				</div>
+				<ul class="pricing-content list-unstyled">
+					{var outlet => $invoiceFacade->getForMonthVatSum($confession->accountDate)}
+					{var recieve => $costFacade->getForMonthVatSum($confession->accountDate)}
+					{var send => $recieve - $outlet}
+					<li>
+						<i class="fa fa-dollar"></i>
+						{$outlet|currency}
+						{_'odvedu na DPH'}
+					</li>
+					<li>
+						<i class="fa fa-shopping-cart"></i>
+						{$recieve|currency}
+						{_'minus DPH za nákupy'}
+					</li>
+					<li>
+						<i class="fa fa-send"></i>
+						<span n:class="$send > 0 ? font-green, $send < 0 ? font-red">
+										{abs($send)|currency}
+							{if $send > 0}
+								{_'mi přijde'}
+							{elseif $send < 0}
+								{_'zaplatím'}
+							{/if}
+									</span>
+					</li>
+					<li>
+						<i class="fa fa-money"></i>
+						<a n:href="Costs: month => $confession->month, year => $confession->year">
+							{_'%count% costs', $costFacade->getForMonthCount($confession->accountDate)}
+						</a>
+						| {$costFacade->getForMonthSum($confession->accountDate)|currency} {_'cart.withoutVat'}
+					</li>
+					<li>
+						<a n:href="Invoices: month => $confession->month, year => $confession->year">
+							<i class="fa fa-inbox"></i>{_'%count% Invoices', $invoiceFacade->getForMonthCount($confession->accountDate)}
+						</a>
+						| {$invoiceFacade->getForMonthSum($confession->accountDate)|currency} {_'cart.withoutVat'}
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 {/block}
