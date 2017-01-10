@@ -1,0 +1,49 @@
+{block pageTitle}
+	{if $cost->id}
+		{_'Payment #%number%', ['number' => $payment->id]}
+	{else}
+		{_'New Payment'}
+	{/if}
+{/block}
+
+{block breadcrumbItems}
+	<li>
+		<a n:href="Payments:">{_'Payments'}</a>
+	</li>
+	<li>
+		<a n:href="this">
+			{if $payment->id}
+				{_'Edit Payment #%number%', ['number' => $payment->id]}
+			{else}
+				{_'New Payment'}
+			{/if}
+		</a>
+	</li>
+{/block}
+
+{block content}
+	<div class="row">
+		<div class="col-md-6">
+			{include change}
+		</div>
+	</div>
+{/block}
+
+{define change}
+	<div class="portlet">
+		<div class="portlet-title">
+			<div class="caption">
+				<span class="caption-subject">
+				{_'Payment'}
+			</span>
+			</div>
+		</div>
+		<div class="portlet-body form">
+			<div class="row">
+				<div class="col-md-12">
+					{control paymentEdit}
+				</div>
+			</div>
+		</div>
+	</div>
+{/define}

@@ -1,0 +1,29 @@
+{block pageTitle}
+	{_'Payments'}
+{/block}
+
+{block breadcrumbItems}
+	<li><span>{_'Payments'}</span></li>
+{/block}
+
+{block content}
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<span class="caption-subject">{_'Payments'}</span>
+				</div>
+				<div class="actions">
+					<a n:href="add" class="btn btn-circle green-sharp">
+						<i class="fa fa-plus"></i>
+						{_'Add'}
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				{control paymentsGrid}
+			</div>
+		</div>
+	</div>
+</div>

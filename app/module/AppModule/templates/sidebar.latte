@@ -56,6 +56,13 @@
 					<span class="title">{_'Costs'}</span><span class="selected"></span>
 				</a>
 			</li>
+			<li n:if="$user->isAllowed('payments', 'default')"
+					n:class="$presenter->isLinkCurrent('Payments:*') ? active">
+				<a n:href="Payments:">
+					<i class="fa fa-trophy"></i>
+					<span class="title">{_'Payments'}</span><span class="selected"></span>
+				</a>
+			</li>
 			<li n:if="$user->isAllowed('users', 'default')"
 					n:class="$presenter->isLinkCurrent('Users:*') ? active">
 				<a n:href="Users:">

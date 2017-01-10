@@ -24,6 +24,10 @@ services:
 	- {implement: App\Components\Cost\Form\ICostChangeFactory, inject: yes}
 	- {implement: App\Components\Cost\Grid\ICostsGridFactory, inject: yes}
 
+	# Cost
+	- {implement: App\Components\Payment\Form\IPaymentChangeFactory, inject: yes}
+	- {implement: App\Components\Payment\Grid\IPaymentsGridFactory, inject: yes}
+
 	# Confession
 	- {implement: App\Components\Confession\Form\IConfessionChangeFactory, inject: yes}
 
