@@ -31,13 +31,18 @@ class PaymentsGrid extends BaseControl
 
 		$repo = $this->em->getRepository(Payment::getClassName());
 		$qb = $repo->createQueryBuilder('p');
-		if ($this->year && $this->month) {
-			$fromDate = new DateTime('01-' . $this->month . '-' . $this->year);
-			$toDate = clone $fromDate;
-			$toDate->modify('last day of this month');
+		if ($this->year) {
+			if ($this->month) {
+				$fromDate = new DateTime('01.' . $this->month . '.' . $this->year);
+				$toDate = clone $fromDate;
+				$toDate->modify('last day of this month');
+			} else {
+				$fromDate = new DateTime('01.01.' . $this->year);
+				$toDate = new DateTime('31.12.' . $this->year);
+			}
 			$qb->whereCriteria([
-				'p.date >=' => $fromDate,
-				'p.date <=' => $toDate,
+				'p.accountDate >=' => $fromDate,
+				'p.accountDate <=' => $toDate,
 			]);
 		}
 		$grid->setModel(new Doctrine($qb, []), TRUE);

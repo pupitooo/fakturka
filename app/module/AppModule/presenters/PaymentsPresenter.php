@@ -50,7 +50,7 @@ class PaymentsPresenter extends BasePresenter
 	 */
 	public function actionDefault($month = NULL, $year = NULL)
 	{
-		if ($month && $year) {
+		if ($month || $year) {
 			$this['paymentsGrid']->setInterval($month, $year);
 		}
 	}

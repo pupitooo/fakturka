@@ -13,7 +13,7 @@
 
 	<!-- BEGIN DASHBOARD STATS -->
 	<div class="row">
-		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
+		<div class="col-lg-6">
 			<div class="dashboard-stat blue-madison">
 				<div class="visual">
 					<i class="fa fa-inbox fa-icon-medium"></i>
@@ -31,7 +31,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+		<div class="col-lg-6">
 			<div class="dashboard-stat red-intense">
 				<div class="visual">
 					<i class="fa fa-money"></i>
@@ -51,5 +51,64 @@
 		</div>
 	</div>
 	<!-- END DASHBOARD STATS -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<table class="table table-bordered table-striped">
+				<thead>
+				<tr>
+					<th>{_'Year'}</th>
+					<th>{_'Months'}</th>
+					<th>{_'Sum'}</th>
+					<th>{_'Cargo'}</th>
+					<th>{_'Clear'}</th>
+					<th>{_'Monthly'}</th>
+					<th>{_'Clear monthly'}</th>
+				</tr>
+				</thead>
+				{var sumMonths => 0}
+				{var sumSums => 0}
+				{var sumCargos => 0}
+				{var sumClears => 0}
+				<tbody>
+				<tr n:foreach="$years as $year">
+					<td>{$year}</td>
+					<td>
+						{var monthsCount => $thisYear == $year ? $thisMonth - 1 : 12}
+						{var minusMonths => array_key_exists($year, $minus) ? $minus[$year] : 0}
+						{var months => $monthsCount - $minusMonths}
+						{var $sumMonths += $months}
+						{$months}
+					</td>
+					<td>
+						{$sum[$year]|currency}
+						{var $sumSums += $sum[$year]}
+					</td>
+					<td>
+						{$cargo[$year]|currency}
+						{var $sumCargos += $cargo[$year]}
+					</td>
+					<td>
+						{$clear[$year]|currency}
+						{var sumClears += $clear[$year]}
+					</td>
+					<td>{$months ? $sum[$year]/$months : $sum[$year]|currency}</td>
+					<td>{$months ? $clear[$year]/$months : $clear[$year]|currency}</td>
+				</tr>
+				</tbody>
+				<tfoot>
+				<tr>
+					<th></th>
+					<th>{$sumMonths}</th>
+					<th>{$sumSums|currency}</th>
+					<th>{$sumCargos|currency}</th>
+					<th>{$sumClears|currency}</th>
+					<th>{$months ? $sumSums/$sumMonths : $sumSums|currency}</th>
+					<th>{$months ? $sumClears/$sumMonths : $sumClears|currency}</th>
+				</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
 
 {/block}

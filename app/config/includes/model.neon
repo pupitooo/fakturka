@@ -10,6 +10,7 @@ services:
 	- {class: App\Model\Facade\UriFacade, inject: yes}
 	- {class: App\Model\Facade\InvoiceFacade, inject: yes}
 	- {class: App\Model\Facade\CostFacade, inject: yes}
+	- {class: App\Model\Facade\PaymentFacade, inject: yes}
 	- {class: App\Model\Facade\ConfessionFacade, inject: yes}
 	- {class: App\Model\Facade\LocaleFacade, inject: yes}
 

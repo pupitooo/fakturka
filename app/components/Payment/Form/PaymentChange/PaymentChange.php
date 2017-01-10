@@ -43,6 +43,10 @@ class PaymentChange extends BaseControl
 			->setSize(DatePicker::SIZE_S)
 			->setRequired();
 
+		$form->addDatePicker('accountDate', 'Account Date')
+			->setSize(DatePicker::SIZE_S)
+			->setRequired();
+
 		$form->addText('name', 'Name')
 			->setRequired();
 
@@ -84,6 +88,7 @@ class PaymentChange extends BaseControl
 		}
 		$this->payment->rate = Price::strToFloat($values->rate);
 		$this->payment->date = $values->date;
+		$this->payment->accountDate = $values->accountDate;
 		return $this;
 	}
 
@@ -103,6 +108,7 @@ class PaymentChange extends BaseControl
 			'priceEur' => $this->payment->priceEur,
 			'rate' => $this->payment->rate ? $this->payment->rate : 27,
 			'date' => $this->payment->date ? $this->payment->date : new DateTime(),
+			'accountDate' => $this->payment->accountDate ? $this->payment->accountDate : new DateTime(),
 		];
 		return $values;
 	}

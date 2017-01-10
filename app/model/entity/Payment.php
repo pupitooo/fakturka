@@ -16,6 +16,7 @@ use Nette\Utils\DateTime;
  * @property float $priceEur
  * @property float $rate
  * @property DateTime $date
+ * @property DateTime $accountDate
  */
 class Payment extends BaseEntity
 {
@@ -37,6 +38,9 @@ class Payment extends BaseEntity
 
 	/** @ORM\Column(type="date") */
 	protected $date;
+
+	/** @ORM\Column(type="date") */
+	protected $accountDate;
 
 	public function __construct()
 	{
