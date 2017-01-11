@@ -24,10 +24,6 @@ class RouterFactory
 	 */
 	public function createRouter()
 	{
-		if (!Configurator::detectDebugMode()) {
-			Route::$defaultFlags = Route::SECURED;
-		}
-		
 		$router = new RouteList();
 
 		$router[] = $fotoRouter = new RouteList('Foto');
@@ -51,7 +47,7 @@ class RouterFactory
 		$apiRouter[] = new ResourceRoute('api[/<presenter>[/<action>]]', [
 			'presenter' => 'Default',
 			'action' => 'default'
-				], ResourceRoute::GET | ResourceRoute::POST);
+		], ResourceRoute::GET | ResourceRoute::POST);
 
 		// </editor-fold>
 		// <editor-fold desc="Cron">

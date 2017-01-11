@@ -35,6 +35,9 @@ class UserBasic extends BaseControl
 	// </editor-fold>
 	// <editor-fold desc="variables">
 
+	/** @var bool */
+	private $disableRoles = FALSE;
+
 	/** @var array */
 	private $identityRoles = [];
 
@@ -59,8 +62,8 @@ class UserBasic extends BaseControl
 		$form->setRenderer(new MetronicFormRenderer());
 
 		$mail = $form->addServerValidatedText('mail', 'E-mail')
-				->addRule(Form::EMAIL, 'Fill right format')
-				->addRule(Form::FILLED, 'Mail must be filled');
+			->addRule(Form::EMAIL, 'Fill right format')
+			->addRule(Form::FILLED, 'Mail must be filled');
 		if ($this->user->isNew()) {
 			$mail->addServerRule([$this, 'validateMail'], $this->translator->translate('%value% is already registered.'));
 		} else {
@@ -71,20 +74,22 @@ class UserBasic extends BaseControl
 		if ($this->user->isNew()) {
 			$helpText = $this->translator->translate('At least %count% characters long.', $this->settings->passwords->minLength);
 			$password->addRule(Form::FILLED, 'Password must be filled')
-					->addRule(Form::MIN_LENGTH, 'Password must be at least %count% characters long.', $this->settings->passwords->minLength)
-					->setOption('description', $helpText);
+				->addRule(Form::MIN_LENGTH, 'Password must be at least %count% characters long.', $this->settings->passwords->minLength)
+				->setOption('description', $helpText);
 		}
 
-		$role = $form->addMultiSelectBoxes('roles', 'Roles', $this->getRoles())
+		if (!$this->disableRoles) {
+			$role = $form->addMultiSelectBoxes('roles', 'Roles', $this->getRoles())
 				->setRequired('Select any role');
-		if (!$this->user->isNew() && !$this->userIdentity->isAllowed('users', 'editAll')) {
-			$role->setDisabled();
-		}
+			if (!$this->user->isNew() && !$this->userIdentity->isAllowed('users', 'editAll')) {
+				$role->setDisabled();
+			}
 
-		$roleRepo = $this->em->getRepository(Role::getClassName());
-		$defaultRole = $roleRepo->findOneByName(Role::USER);
-		if ($defaultRole && in_array($defaultRole->getId(), $this->getRoles())) {
-			$role->setDefaultValue($defaultRole->getId());
+			$roleRepo = $this->em->getRepository(Role::getClassName());
+			$defaultRole = $roleRepo->findOneByName(Role::USER);
+			if ($defaultRole && in_array($defaultRole->getId(), $this->getRoles())) {
+				$role->setDefaultValue($defaultRole->getId());
+			}
 		}
 
 		$form->addSubmit('save', 'Save');
@@ -132,8 +137,8 @@ class UserBasic extends BaseControl
 
 		}
 		$this->user
-				->setLocale($this->translator->getDefaultLocale())
-				->setCurrency($this->exchange->getDefault()->getCode());
+			->setLocale($this->translator->getDefaultLocale())
+			->setCurrency($this->exchange->getDefault()->getCode());
 
 		return $this;
 	}
@@ -164,9 +169,10 @@ class UserBasic extends BaseControl
 
 	// <editor-fold desc="setters & getters">
 
-	public function setUser(User $user)
+	public function setUser(User $user, $disableRoles = FALSE)
 	{
 		$this->user = $user;
+		$this->disableRoles = $disableRoles;
 		return $this;
 	}
 

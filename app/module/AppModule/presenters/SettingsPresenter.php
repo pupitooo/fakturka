@@ -4,6 +4,8 @@ namespace App\AppModule\Presenters;
 
 use App\Components\Currency\Form\IRateFactory;
 use App\Components\Currency\Form\Rate;
+use App\Components\User\Form\IUserBasicFactory;
+use App\Components\User\Form\UserBasic;
 
 class SettingsPresenter extends BasePresenter
 {
@@ -12,6 +14,9 @@ class SettingsPresenter extends BasePresenter
 
 	/** @var IRateFactory @inject */
 	public $iRateFormFactory;
+
+	/** @var IUserBasicFactory @inject */
+	public $iUserBasicFactory;
 
 	// </editor-fold>
 
@@ -34,7 +39,20 @@ class SettingsPresenter extends BasePresenter
 		$control->onAfterSave = function () {
 			$message = $this->translator->translate('Rates was successfully saved.');
 			$this->flashMessage($message, 'success');
-			$this->redirect('default');
+			$this->redirect('this');
+		};
+		return $control;
+	}
+
+	/** @return UserBasic */
+	public function createComponentChangePassword()
+	{
+		$control = $this->iUserBasicFactory->create();
+		$control->setUser($this->user->identity, TRUE);
+		$control->onAfterSave = function () {
+			$message = $this->translator->translate('User was successfully saved.');
+			$this->flashMessage($message, 'success');
+			$this->redirect('this');
 		};
 		return $control;
 	}

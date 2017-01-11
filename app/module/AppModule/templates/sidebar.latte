@@ -133,6 +133,13 @@
 							{_'E-shop'}
 						</a>
 					</li>
+					<li n:if="$user->isAllowed('settings', 'changePassword')"
+							n:class="$presenter->isLinkCurrent('Settings:changePassword') ? active">
+						<a n:href="Settings:changePassword">
+							<i class="fa fa-key"></i>
+							{_'Change password'}
+						</a>
+					</li>
 				</ul>
 			</li>
 			<!-- END TOGETHER AREA -->
