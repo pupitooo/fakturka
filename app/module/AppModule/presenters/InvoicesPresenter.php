@@ -6,8 +6,6 @@ use App\Components\Invoice\Form\IInvoiceChangeFactory;
 use App\Components\Invoice\Form\IInvoiceItemsFactory;
 use App\Components\Invoice\Form\InvoiceItems;
 use App\Components\Invoice\Grid\IInvoicesGridFactory;
-use App\Components\Invoice\Pdf\IInvoicePdfFactory;
-use App\Components\Invoice\Pdf\InvoicePdf;
 use App\Model\Entity\Invoice;
 use App\Model\Facade\InvoiceFacade;
 use App\Model\Repository\InvoiceRepository;
@@ -38,9 +36,6 @@ class InvoicesPresenter extends BasePresenter
 
 	/** @var IInvoicesGridFactory @inject */
 	public $iInvoicesGridFactory;
-
-	/** @var IInvoicePdfFactory @inject */
-	public $iInvoicePdfFactory;
 
 	// </editor-fold>
 
@@ -137,20 +132,6 @@ class InvoicesPresenter extends BasePresenter
 		$this->template->bankAccount = $this->settings->getCompanyInfo()->bank[Strings::lower($this->invoiceEntity->currency)];
 	}
 
-	public function actionPdf($id)
-	{
-		$this->invoiceEntity = $this->invoiceRepo->find($id);
-		if (!$this->invoiceEntity) {
-			$message = $this->translator->translate('wasntFoundShe', NULL, ['name' => $this->translator->translate('Invoice')]);
-			$this->flashMessage($message, 'warning');
-			$this->redirect('default');
-		}
-
-		$mpdf = new \mPDF('utf-8');
-		$this['invoicePdf']->exportToPdf($mpdf);
-		$this->terminate();
-	}
-
 	/**
 	 * @secured
 	 * @resource('invoices')
@@ -204,14 +185,6 @@ class InvoicesPresenter extends BasePresenter
 			$this->flashMessage($message, 'success');
 			$this->redirect('edit', $saved->id);
 		};
-		return $control;
-	}
-
-	/** @return InvoicePdf */
-	public function createComponentInvoicePdf()
-	{
-		$control = $this->iInvoicePdfFactory->create();
-		$control->setInvoice($this->invoiceEntity);
 		return $control;
 	}
 
