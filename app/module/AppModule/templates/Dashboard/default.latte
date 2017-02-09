@@ -59,7 +59,8 @@
 				<tr>
 					<th>{_'Year'}</th>
 					<th>{_'Months'}</th>
-					<th>{_'Sum'}</th>
+					<th>{_'Invoices'}</th>
+					<th>{_'Recieved'}</th>
 					<th>{_'Cargo'}</th>
 					<th>{_'Clear'}</th>
 					<th>{_'Monthly'}</th>
@@ -67,6 +68,7 @@
 				</tr>
 				</thead>
 				{var sumMonths => 0}
+				{var invoicesSums => 0}
 				{var sumSums => 0}
 				{var sumCargos => 0}
 				{var sumClears => 0}
@@ -79,6 +81,10 @@
 						{var months => $monthsCount - $minusMonths}
 						{var $sumMonths += $months}
 						{$months}
+					</td>
+					<td>
+						{$invoices[$year]|currency}
+						{var $invoicesSums += $invoices[$year]}
 					</td>
 					<td>
 						{$sum[$year]|currency}
@@ -100,6 +106,7 @@
 				<tr>
 					<th></th>
 					<th>{$sumMonths}</th>
+					<th>{$invoicesSums|currency}</th>
 					<th>{$sumSums|currency}</th>
 					<th>{$sumCargos|currency}</th>
 					<th>{$sumClears|currency}</th>

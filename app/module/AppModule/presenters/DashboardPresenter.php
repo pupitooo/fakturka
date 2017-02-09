@@ -28,9 +28,11 @@ class DashboardPresenter extends BasePresenter
 			2013 => 2,
 			2016 => 2,
 		];
+		$invoices = [];
 		$sum = [];
 		$clear = [];
 		foreach ($years as $year) {
+			$invoices[$year] = $this->invoiceFacade->getForYearSum(new DateTime('1.1.' . $year));
 			$sum[$year] = $this->paymentFacade->getForYearSum(new DateTime('1.1.' . $year));
 			$clear[$year] = $this->paymentFacade->getForYearSum(new DateTime('1.1.' . $year), TRUE);
 			$cargo[$year] = $this->paymentFacade->getForYearCargo(new DateTime('1.1.' . $year));
@@ -40,6 +42,7 @@ class DashboardPresenter extends BasePresenter
 		$this->template->thisMonth = date('n');
 		$this->template->years = $years;
 		$this->template->minus = $minusMonths;
+		$this->template->invoices = $invoices;
 		$this->template->sum = $sum;
 		$this->template->clear = $clear;
 		$this->template->cargo = $cargo;
