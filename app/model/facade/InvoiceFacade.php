@@ -11,7 +11,7 @@ use Nette\Utils\DateTime;
 class InvoiceFacade extends Object
 {
 
-	const YEAR_LIMIT = 400000;
+	const YEAR_LIMIT = 380000; // 24000 za nájem bytu
 	const PREFIX = '15';
 
 	/** @var EntityManager @inject */
