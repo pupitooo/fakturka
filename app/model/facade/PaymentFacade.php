@@ -15,8 +15,8 @@ class PaymentFacade extends Object
 		2013 => 3638,
 		2014 => 3646,
 		2015 => 3740,
-		2016 => 3766,
-		2017 => 3796,
+		2016 => 3795,
+		2017 => 3878,
 	];
 
 	/** @var EntityManager @inject */
