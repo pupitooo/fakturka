@@ -89,10 +89,11 @@ class InvoiceItem extends BaseEntity
 		return $exchangedValue * $this->quantity;
 	}
 
-	public function getRawTotalPrice($withVat = TRUE)
+	public function getRawTotalPrice($withVat = TRUE, $rate = NULL)
 	{
 		$price = $this->getRawPrice(TRUE);
 		$priceValue = $withVat ? $price->withVat : $price->withoutVat;
+		$priceValue = $rate ? $priceValue * $rate : $priceValue;
 		return $priceValue * $this->quantity;
 	}
 

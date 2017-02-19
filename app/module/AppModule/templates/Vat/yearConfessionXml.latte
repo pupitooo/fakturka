@@ -1,0 +1,103 @@
+{layout none}
+{contentType application/xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<Pisemnost nazevSW="{$nazevSW}" verzeSW="{$verzeSW}">
+	<DPFDP5 verzePis="04.01">
+		<VetaD
+				rok="{$confession->year}"
+				zdobd_od="01.01.{$confession->year}"
+				zdobd_do="31.12.{$confession->year}"
+				dap_typ="B"
+				pln_moc="N"
+				audit="N"
+				uv_rozsah="P"
+				k_uladis="DPF"
+				kc_dztrata="0"
+				dokument="DP5"
+				prop_zahr="N"
+				c_ufo_cil="460"
+				uhrn_slevy35ba="{$confession->priznFDP5_uhrn_slevy35ba}"
+				kc_op15_1a="{$confession->priznFDP5_uhrn_slevy35ba}"
+				da_celod13="{$confession->priznFDP5_da_dan16}"
+				da_slezap="{$confession->priznFDP5_da_dan16}"
+				da_slevy35ba="{$confession->priznFDP5_kc_zbyvpred}"
+				da_slevy35c="{$confession->priznFDP5_kc_zbyvpred}"
+				kc_zbyvpred="{$confession->priznFDP5_kc_zbyvpred}"
+		/>
+		<VetaP
+				titul="Ing."
+				jmeno="Petr"
+				prijmeni="Poupě"
+				ulice="Revoluční"
+				c_pop="331"
+				naz_obce="SVĚTLÁ NAD SÁZAVOU"
+				psc="58291"
+				stat="ČESKÁ REPUBLIKA"
+				email="petr.poupe@gmail.com"
+				c_telef="775103987"
+				dic="8703103266"
+				rod_c="8703103266"
+				c_obce="569569"
+				c_pracufo="2906"
+				st_prislus="ČR"
+				k_stat="CZ"
+				z_ulice="Revoluční"
+				z_c_pop="331"
+				z_naz_obce="SVĚTLÁ NAD SÁZAVOU"
+				z_psc="58291"
+				z_c_telef="775103987"
+				z_c_obce="569569"
+				krok_ulice="Revoluční"
+				krok_c_pop="331"
+				krok_naz_obce="SVĚTLÁ NAD SÁZAVOU"
+				krok_psc="58291"
+				krok_c_obce="569569"
+		/>
+		<VetaO
+				kc_zakldan="{$confession->priznFDP5_kc_zakldan}"
+				kc_zakldan23="{$confession->priznFDP5_kc_zakldan}"
+				kc_vynprij="{$confession->priznFDP5_kc_zakldan}"
+				kc_uhrn="{$confession->priznFDP5_kc_zakldan}"
+				kc_zd7="{$confession->priznFDP5_kc_hosp_rozd}"
+				kc_zd9="{$confession->priznFDP5_kc_rozdil9}"
+		/>
+		<VetaS
+				kc_zdzaokr="{$confession->priznFDP5_kc_zdzaokr}"
+				kc_zdsniz="{$confession->priznFDP5_kc_zakldan}"
+				da_dan16="{$confession->priznFDP5_da_dan16}"
+		/>
+		<VetaB
+				pril_ztraty="0"
+				priloha1="1"
+				priloh_celk="2"
+				priloha2="1"
+		/>
+		<VetaT
+				celk_pr_prij7="{$confession->priznFDP5_kc_prij7}"
+				celk_pr_vyd7="{$confession->priznFDP5_kc_vyd7}"
+
+				kc_prij7="{$confession->priznFDP5_kc_prij7}"
+				kc_vyd7="{$confession->priznFDP5_kc_vyd7}"
+				kc_hosp_rozd="{$confession->priznFDP5_kc_hosp_rozd}"
+				kc_zd7p="{$confession->priznFDP5_kc_hosp_rozd}"
+				kc_zd7vyn="{$confession->priznFDP5_kc_hosp_rozd}"
+
+				pr_prij7="{$confession->priznFDP5_kc_prij7}"
+				pr_vyd7="{$confession->priznFDP5_kc_vyd7}"
+				pr_sazba="{$confession->priznFDP5_pr_sazba}"
+
+				c_nace="631200"
+				m_podnik="12"
+				vyd7proc="A"
+		/>
+		<VetaV
+				kc_rozdil9="{$confession->priznFDP5_kc_rozdil9}"
+				kc_prij9="{$confession->priznFDP5_kc_prij9}"
+				kc_zd9p="{$confession->priznFDP5_kc_rozdil9}"
+				spol_jm_manz="N"
+				vyd9proc="A"
+				kc_par9_nem="{$confession->priznFDP5_kc_prij9}"
+				kc_vyd9="{$confession->priznFDP5_kc_vyd9}"
+		/>
+	</DPFDP5>
+</Pisemnost>

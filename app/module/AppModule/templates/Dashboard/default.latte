@@ -60,6 +60,7 @@
 					<th>{_'Year'}</th>
 					<th>{_'Months'}</th>
 					<th>{_'Invoices'}</th>
+					<th>{_'Recieved from invoices'}</th>
 					<th>{_'Recieved'}</th>
 					<th>{_'Cargo'}</th>
 					<th>{_'Clear'}</th>
@@ -69,6 +70,7 @@
 				</thead>
 				{var sumMonths => 0}
 				{var invoicesSums => 0}
+				{var invoicesRecievedSums => 0}
 				{var sumSums => 0}
 				{var sumCargos => 0}
 				{var sumClears => 0}
@@ -85,6 +87,12 @@
 					<td>
 						{$invoices[$year]|currency}
 						{var $invoicesSums += $invoices[$year]}
+					</td>
+					<td>
+						<a n:if="$thisYear > $year"
+								n:href="Vat:yearConfessionXml $year"><i class="fa fa-external-link-square"></i></a>
+						{$recievedInvoices[$year]|currency}
+						{var $invoicesRecievedSums += $recievedInvoices[$year]}
 					</td>
 					<td>
 						{$sum[$year]|currency}
@@ -107,6 +115,7 @@
 					<th></th>
 					<th>{$sumMonths}</th>
 					<th>{$invoicesSums|currency}</th>
+					<th>{$invoicesRecievedSums|currency}</th>
 					<th>{$sumSums|currency}</th>
 					<th>{$sumCargos|currency}</th>
 					<th>{$sumClears|currency}</th>

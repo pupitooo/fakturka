@@ -2,8 +2,10 @@
 
 namespace App\Model\Facade;
 
+use App\Model\Entity\Confession;
 use App\Model\Entity\Invoice;
 use App\Model\Repository\InvoiceRepository;
+use h4kuna\Exchange\Exchange;
 use Kdyby\Doctrine\EntityManager;
 use Nette\Object;
 use Nette\Utils\DateTime;
@@ -11,11 +13,13 @@ use Nette\Utils\DateTime;
 class InvoiceFacade extends Object
 {
 
-	const YEAR_LIMIT = 380000; // 24000 za nájem bytu
 	const PREFIX = '15';
 
 	/** @var EntityManager @inject */
 	public $em;
+
+	/** @var Exchange @inject */
+	public $exchange;
 
 	/** @var InvoiceRepository */
 	private $invoiceRepo;
@@ -59,6 +63,17 @@ class InvoiceFacade extends Object
 		return $sum;
 	}
 
+	public function getForYearSumForConfession(DateTime $date, $withoutVat = TRUE)
+	{
+		$invoices = $this->getForYear($date, TRUE);
+		$sum = 0;
+		foreach ($invoices as $invoice) {
+			$rate = Confession::getConfessionRate($invoice->currency, $date);
+			$sum += $invoice->getTotalCountedPrice($rate, !$withoutVat);
+		}
+		return $sum;
+	}
+
 	public function getForMonthVatSum(DateTime $date)
 	{
 		$invoices = $this->getForMonth($date);
@@ -93,17 +108,25 @@ class InvoiceFacade extends Object
 		return $invoices;
 	}
 
-	public function getForYear(DateTime $date)
+	public function getForYear(DateTime $date, $onlyPaidInThisYear = FALSE)
 	{
 		$year = $date->format('Y');
 
 		$fromDate = new DateTime('1.1.' . $year);
 		$toDate = new DateTime('31.12.' . $year);
 
-		$invoices = $this->invoiceRepo->findBy([
-			'dueDate >=' => $fromDate,
-			'dueDate <=' => $toDate,
-		]);
+		if ($onlyPaidInThisYear) {
+			$conditions = [
+				'paymentDate >=' => $fromDate,
+				'paymentDate <=' => $toDate,
+			];
+		} else {
+			$conditions = [
+				'dueDate >=' => $fromDate,
+				'dueDate <=' => $toDate,
+			];
+		}
+		$invoices = $this->invoiceRepo->findBy($conditions);
 		return $invoices;
 	}
 
@@ -134,6 +157,23 @@ class InvoiceFacade extends Object
 	public function getForMonthCount(DateTime $date)
 	{
 		return count($this->getForMonth($date));
+	}
+
+	/**
+	 * Sleva na poplatníka = 24840
+	 * Daň 15% musí být 24840 => 165600 = X
+	 * X - 16800 (základ z nájmu) = 148800 = 40% ze příjmů, ze kterých nic neplatím
+	 * 372000
+	 */
+	public function getYearLimit()
+	{
+		$rentBase = Confession::YEAR_RENT * (1 - Confession::RENT_COSTS_PERCENTAGE);
+		$x = Confession::TAXPAYER_DISCOUNT / Confession::TAX_PERCENTAGE;
+		$ceilingX = round($x / 100) * 100;
+		$baseWithoutCosts = $ceilingX - $rentBase;
+		$yearLimit = $baseWithoutCosts / (1 - Confession::COSTS_PERCENTAGE);
+
+		return $yearLimit;
 	}
 
 }

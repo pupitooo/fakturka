@@ -138,6 +138,16 @@ class Invoice extends BaseEntity
 	}
 
 	/** @return float */
+	public function getTotalCountedPrice($rate, $withVat = TRUE)
+	{
+		$totalPrice = 0;
+		foreach ($this->items as $item) {
+			$totalPrice += $item->getRawTotalPrice($withVat, $rate);
+		}
+		return $totalPrice;
+	}
+
+	/** @return float */
 	public function getVatSum(Exchange $exchange = NULL)
 	{
 		$withVat = $this->getTotalPrice($exchange, TRUE);

@@ -3,6 +3,7 @@
 namespace App\Model\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use h4kuna\Exchange\Exchange;
 use Kdyby\Doctrine\Entities\BaseEntity;
 use Knp\DoctrineBehaviors\Model;
 use Nette\Utils\DateTime;
@@ -24,6 +25,12 @@ class Confession extends BaseEntity
 {
 
 	const KH_LIMIT = 10000;
+
+	const YEAR_RENT = 24000;
+	const RENT_COSTS_PERCENTAGE = 0.3;
+	const TAXPAYER_DISCOUNT = 24840;
+	const TAX_PERCENTAGE = 0.15;
+	const COSTS_PERCENTAGE = 0.6;
 
 	use Model\Timestampable\Timestampable;
 
@@ -61,7 +68,7 @@ class Confession extends BaseEntity
 
 	public function getAccountDate()
 	{
-		return new DateTime('1.' . $this->month . '.' . $this->year);
+		return new DateTime('1.' . ($this->month ? $this->month : '1') . '.' . $this->year);
 	}
 
 	public function __toString()
@@ -93,6 +100,33 @@ class Confession extends BaseEntity
 			}
 		}
 		return $invoices;
+	}
+
+	public static function getConfessionRate($currency, $year, Exchange $exchange = NULL)
+	{
+		$rates = [
+			'EUR' => [
+				2016 => 27.04, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2016/
+				2015 => 27.27, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2015/
+				2014 => 27.55, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2014/
+				2013 => 26.03, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2013/
+			]
+		];
+
+		if (array_key_exists($currency, $rates)) {
+			if ($year instanceof DateTime) {
+				$year = $year->format('Y');
+			}
+			if (array_key_exists($year, $rates[$currency])) {
+				$rate = $rates[$currency][$year];
+			} else {
+				$rate = $exchange ? $exchange[$currency]->getHome() : current($rates[$currency]);
+			}
+		} else {
+			$rate = $exchange ? $exchange->getDefault()->getHome() : 1;
+		}
+
+		return $rate;
 	}
 
 	public function getPriznDP3_CI1($vat = TRUE, $rounded = TRUE)
@@ -181,6 +215,71 @@ class Confession extends BaseEntity
 	public function getPriznKH_C1zaklad()
 	{
 		return $this->getPriznDP3_CI1(FALSE, FALSE);
+	}
+
+	public function getPriznFDP5_kc_prij9()
+	{
+		return round(self::YEAR_RENT);
+	}
+
+	public function getPriznFDP5_kc_rozdil9()
+	{
+		return round(self::YEAR_RENT - $this->getPriznFDP5_kc_vyd9());
+	}
+
+	public function getPriznFDP5_kc_vyd9()
+	{
+		return round(self::YEAR_RENT * self::RENT_COSTS_PERCENTAGE);
+	}
+
+	public function getPriznFDP5_kc_prij7()
+	{
+		$sum = 0;
+		foreach ($this->invoices as $invoice) {
+			$rate = self::getConfessionRate($invoice->currency, $this->year);
+			$sum += $invoice->getTotalCountedPrice($rate, FALSE);
+		}
+		return round($sum);
+	}
+
+	public function getPriznFDP5_kc_vyd7()
+	{
+		return round($this->getPriznFDP5_kc_prij7() * self::COSTS_PERCENTAGE);
+	}
+
+	public function getPriznFDP5_kc_hosp_rozd()
+	{
+		return round($this->getPriznFDP5_kc_prij7() - $this->getPriznFDP5_kc_vyd7());
+	}
+
+	public function getPriznFDP5_pr_sazba()
+	{
+		return self::COSTS_PERCENTAGE * 100;
+	}
+
+	public function getPriznFDP5_kc_zakldan()
+	{
+		return round($this->getPriznFDP5_kc_hosp_rozd() + $this->getPriznFDP5_kc_rozdil9());
+	}
+
+	public function getPriznFDP5_kc_zdzaokr()
+	{
+		return floor($this->getPriznFDP5_kc_zakldan() / 100) * 100;
+	}
+
+	public function getPriznFDP5_da_dan16()
+	{
+		return round($this->getPriznFDP5_kc_zdzaokr() * self::TAX_PERCENTAGE);
+	}
+
+	public function getPriznFDP5_uhrn_slevy35ba()
+	{
+		return self::TAXPAYER_DISCOUNT;
+	}
+
+	public function getPriznFDP5_kc_zbyvpred()
+	{
+		return round($this->getPriznFDP5_da_dan16() - $this->getPriznFDP5_uhrn_slevy35ba());
 	}
 
 }

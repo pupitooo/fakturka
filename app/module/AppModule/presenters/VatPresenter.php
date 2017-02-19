@@ -45,6 +45,13 @@ class VatPresenter extends BasePresenter
 		$this->confessionRepo = $this->em->getRepository(Confession::getClassName());
 	}
 
+	protected function beforeRender()
+	{
+		parent::beforeRender();
+		$this->template->nazevSW = 'EPO MF ČR';
+		$this->template->verzeSW = '39.14.1';
+	}
+
 	/**
 	 * @secured
 	 * @resource('vat')
@@ -88,6 +95,17 @@ class VatPresenter extends BasePresenter
 		$this->template->invoiceFacade = $this->invoiceFacade;
 		$this->template->costFacade = $this->costFacade;
 		$this->template->confessionFacade = $this->confessionFacade;
+	}
+
+	/**
+	 * @secured
+	 * @resource('vat')
+	 * @privilege('xml')
+	 */
+	public function actionYearConfessionXml($year)
+	{
+		$this->getYearConfessionEntity($year);
+		$this->template->confession = $this->confessionEntity;
 	}
 
 	/**
@@ -154,6 +172,12 @@ class VatPresenter extends BasePresenter
 		$this->confessionEntity->invoices = $this->invoiceFacade->getForMonth($this->confessionEntity->accountDate);
 		$this->confessionEntity->costsSum = $this->costFacade->getForMonthSum($this->confessionEntity->accountDate);
 		$this->confessionEntity->costsVat = $this->costFacade->getForMonthVatSum($this->confessionEntity->accountDate);
+	}
+
+	private function getYearConfessionEntity($year)
+	{
+		$this->confessionEntity = new Confession(1, $year);
+		$this->confessionEntity->invoices = $this->invoiceFacade->getForYear($this->confessionEntity->accountDate, TRUE);
 	}
 
 	// <editor-fold desc="forms">
