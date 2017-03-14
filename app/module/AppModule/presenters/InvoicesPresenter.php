@@ -65,7 +65,7 @@ class InvoicesPresenter extends BasePresenter
 	public function actionAdd()
 	{
 		$newId = $this->invoiceFacade->getNewId(self::YEAR);
-		$this->invoiceEntity = new Invoice($newId, $this->translator->getLocale());
+		$this->invoiceEntity = new Invoice($newId, $this->translator->getDefaultLocale());
 		$this->setView('edit');
 	}
 
