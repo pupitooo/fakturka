@@ -51,6 +51,11 @@ class CostChange extends BaseControl
 		$form->addText('name', 'Name')
 			->setRequired();
 
+		$form->addText('dic', 'cart.form.dic')
+			->setAttribute('class', [MetronicTextInputBase::SIZE_M]);
+		$form->addText('invoiceNumber', 'Invoice')
+			->setAttribute('class', [MetronicTextInputBase::SIZE_M]);
+
 		$form->addText('withoutVat', 'Price without Vat')
 			->setAttribute('class', ['mask_currency', MetronicTextInputBase::SIZE_S]);
 
@@ -85,6 +90,8 @@ class CostChange extends BaseControl
 		if ($values->name && ($values->withoutVat || $values->withVat)) {
 			$this->cost->name = $values->name;
 			$this->cost->dueDate = $values->dueDate;
+			$this->cost->invoiceNumber = $values->invoiceNumber;
+			$this->cost->dic = $values->dic;
 
 			$vatRepo = $this->em->getRepository(Vat::getClassName());
 			$vat = $vatRepo->find($values->vat);
@@ -139,6 +146,8 @@ class CostChange extends BaseControl
 	{
 		$values = [
 			'name' => $this->cost->name,
+			'invoiceNumber' => $this->cost->invoiceNumber,
+			'dic' => $this->cost->dic,
 			'vat' => $this->cost->vat->id,
 			'vatSum' => $this->cost->vatSum,
 			'withoutVat' => $this->cost->priceWithoutVat,

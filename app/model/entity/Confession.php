@@ -17,6 +17,7 @@ use Nette\Utils\DateTime;
  * @property string $password
  * @property DateTime $sendDate
  * @property Invoice[] $invoices
+ * @property Cost[] $costs
  * @property-read Invoice[] $localInvoices
  * @property-read Invoice[] $foreignInvoices
  * @property-read DateTime $accountDate
@@ -51,6 +52,9 @@ class Confession extends BaseEntity
 
 	/** @var array */
 	protected $invoices = [];
+
+	/** @var array */
+	protected $costs = [];
 
 	/** @var float */
 	protected $costsSum = 0;
@@ -212,9 +216,38 @@ class Confession extends BaseEntity
 		return $this->getPriznKH_A5(FALSE);
 	}
 
+	public function getPriznKH_B3($vat = TRUE)
+	{
+		$sum = 0;
+		foreach ($this->costs as $cost) {
+			if (!$cost->hasOverKhLimit()) {
+				if ($vat) {
+					$sum += $cost->vatSum;
+				} else {
+					$sum += $cost->priceWithoutVat;
+				}
+			}
+		}
+		return $sum;
+	}
+
+	public function getPriznKH_B3zaklad()
+	{
+		return $this->getPriznKH_B3(FALSE);
+	}
+
 	public function getPriznKH_C1zaklad()
 	{
 		return $this->getPriznDP3_CI1(FALSE, FALSE);
+	}
+
+	public function getPriznKH_C1r40()
+	{
+		$sum = 0;
+		foreach ($this->costs as $cost) {
+			$sum += $cost->priceWithoutVat;
+		}
+		return $sum;
 	}
 
 	public function getPriznFDP5_kc_prij9()

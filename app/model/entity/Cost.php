@@ -12,6 +12,8 @@ use Nette\Utils\DateTime;
  * @ORM\Entity(repositoryClass="App\Model\Repository\CostRepository")
  *
  * @property string $name
+ * @property string $dic
+ * @property string $invoiceNumber
  * @property float $priceWithoutVat
  * @property float $priceWithVat
  * @property Vat $vat
@@ -28,6 +30,12 @@ class Cost extends BaseEntity
 
 	/** @ORM\Column(type="string") */
 	protected $name;
+
+	/** @ORM\Column(type="string", length=50, nullable=true) */
+	protected $invoiceNumber;
+
+	/** @ORM\Column(type="string", length=50, nullable=true) */
+	protected $dic;
 
 	/** @ORM\Column(type="float") */
 	protected $priceWithoutVat;
@@ -69,6 +77,11 @@ class Cost extends BaseEntity
 	public function __toString()
 	{
 		return (string)$this->name;
+	}
+
+	public function hasOverKhLimit()
+	{
+		return $this->priceWithVat > Confession::KH_LIMIT;
 	}
 
 }

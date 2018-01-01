@@ -47,8 +47,30 @@
 				dan1="{$confession->priznKH_A5}"
 				zakl_dane1="{$confession->priznKH_A5zaklad}"/>
 
+		{var counter => 0}
+		{foreach $confession->costs as $cost}
+			{if $cost->hasOverKhLimit()}
+				{var counter += 1}
+				<VetaB2 {* Přijatá zdanitelná plnění a poskytnuté úplaty, u kterých příjemce uplatňuje nárok na odpočet daně dle § 73 odst. 1 písm. a) s hodnotou nad 10.000,- Kč včetně daně a všechny přijaté opravy podle § 44 bez ohledu na limit *}
+						c_radku="{$counter}"
+						dppd="{$cost->dueDate|date:'d.m.Y'}"
+						c_evid_dd="{$cost->invoiceNumber}"
+						dic_dod="{$cost->dic}"
+						zakl_dane1="{$cost->priceWithoutVat}"
+						dan1="{$cost->vatSum}"
+						zdph_44="N"
+						pomer="N"/>
+			{/if}
+		{/foreach}
+
+		<VetaB3 {* Přijatá zdanitelná plnění a poskytnuté úplaty, u kterých příjemce uplatňuje nárok na odpočet daně dle § 73 odst. 1 písm. a) s hodnotou do 10.000,- Kč včetně daně *}
+				n:if="$confession->priznKH_B3"
+				dan1="{$confession->priznKH_B3}"
+				zakl_dane1="{$confession->priznKH_B3zaklad}"/>
+
 		<VetaC {* Kontrolní řádky na Daňové přiznání k DPH *}
-				obrat23="{$confession->priznKH_C1zaklad}"/>
+				obrat23="{$confession->priznKH_C1zaklad}"
+				pln23="{$confession->priznKH_C1r40}"/>
 	</DPHKH1>
 </Pisemnost>
 

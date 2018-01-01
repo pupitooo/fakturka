@@ -170,6 +170,7 @@ class VatPresenter extends BasePresenter
 			$this->confessionEntity = new Confession($month, $year);
 		}
 		$this->confessionEntity->invoices = $this->invoiceFacade->getForMonth($this->confessionEntity->accountDate);
+		$this->confessionEntity->costs = $this->costFacade->getForMonth($this->confessionEntity->accountDate);
 		$this->confessionEntity->costsSum = $this->costFacade->getForMonthSum($this->confessionEntity->accountDate);
 		$this->confessionEntity->costsVat = $this->costFacade->getForMonthVatSum($this->confessionEntity->accountDate);
 	}
