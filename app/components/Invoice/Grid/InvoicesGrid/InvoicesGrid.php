@@ -148,6 +148,9 @@ class InvoicesGrid extends BaseControl
 			->setColumn('shippingAddress.foreignBusiness')
 			->setSortable();
 
+		$grid->addActionHref('pdf', 'PDF')
+			->setIcon('fa fa-file-pdf-o');
+
 		$grid->addActionHref('edit', 'Edit')
 			->setIcon('fa fa-edit');
 
@@ -162,7 +165,7 @@ class InvoicesGrid extends BaseControl
 			});
 		$col->getElementPrototype()->class[] = 'red';
 
-		$grid->setActionWidth('240px');
+		$grid->setActionWidth('280px');
 
 		return $grid;
 	}

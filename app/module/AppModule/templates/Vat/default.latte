@@ -60,6 +60,9 @@
 											{_'mi přijde'}
 										{elseif $send < 0}
 											{_'zaplatím'}
+											<a target="_blank" href="https://api.paylibo.com/paylibo/generator/czech/image?accountPrefix=705&accountNumber=67626681&bankCode=0710&amount={abs($send)}&currency=CZK&vs=8703103266&ks=1148&message=DPH">
+												{_'QR code'}
+											</a>
 										{/if}
 									</span>
 								</li>

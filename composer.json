@@ -78,10 +78,5 @@
 		"webchemistry/invoice": "^1.1",
 		"OndrejBrejla/Eciovni": "^1.1"
 	},
-	"require-dev": {
-		"nette/tester": "1.3.*@dev",
-		"kdyby/tester-extras": "@dev",
-		"mockery/mockery": "0.9.3"
-	},
 	"minimum-stability": "stable"
 }

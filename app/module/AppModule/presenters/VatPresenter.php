@@ -113,6 +113,18 @@ class VatPresenter extends BasePresenter
 	 * @resource('vat')
 	 * @privilege('xml')
 	 */
+	public function actionOsszXml($year)
+	{
+		$this->getYearConfessionEntity($year);
+		$this->template->confession = $this->confessionEntity;
+		$this->template->year = $year;
+	}
+
+	/**
+	 * @secured
+	 * @resource('vat')
+	 * @privilege('xml')
+	 */
 	public function actionConfessionXml($month, $year)
 	{
 		$this->getConfessionEntity($month, $year);

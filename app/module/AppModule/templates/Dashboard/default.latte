@@ -59,8 +59,12 @@
 				<tr>
 					<th>{_'Year'}</th>
 					<th>{_'Months'}</th>
-					<th>{_'Invoices'}</th>
-					<th>{_'Recieved from invoices'}</th>
+					<th>{_'Invoices without VAT'}</th>
+					<th>
+						<abbr title="{_'For year confession - recieved in this year without VAT'}">
+							{_'Recieved from invoices'}
+						</abbr>
+					</th>
 					<th>{_'Recieved'}</th>
 					<th>{_'Cargo'}</th>
 					<th>{_'Clear'}</th>
@@ -90,9 +94,13 @@
 					</td>
 					<td>
 						<a n:if="$thisYear > $year"
+								target="_blank"
 								n:href="Vat:yearConfessionXml $year"><i class="fa fa-external-link-square"></i></a>
 						{$recievedInvoices[$year]|currency}
 						{var $invoicesRecievedSums += $recievedInvoices[$year]}
+						<a n:if="$thisYear > $year"
+								target="_blank"
+								n:href="Vat:osszXml $year">OSSZ</a>
 					</td>
 					<td>
 						{$sum[$year]|currency}

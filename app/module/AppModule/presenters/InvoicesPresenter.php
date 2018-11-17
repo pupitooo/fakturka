@@ -113,6 +113,16 @@ class InvoicesPresenter extends BasePresenter
 	/**
 	 * @secured
 	 * @resource('invoices')
+	 * @privilege('pdf')
+	 */
+	public function actionPdf($id)
+	{
+		$this->redirect(':Front:Invoice:pdf', ['id' => $id]);
+	}
+
+	/**
+	 * @secured
+	 * @resource('invoices')
 	 * @privilege('show')
 	 */
 	public function actionShow($id)

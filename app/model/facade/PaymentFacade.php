@@ -17,10 +17,23 @@ class PaymentFacade extends Object
 		2015 => 3740,
 		2016 => 3795,
 		2017 => 3878,
+		2018 => 3878,
+	];
+
+	const CLEAR_YEARS = [ // default is clear year
+		2013 => false,
+		2014 => false,
+		2015 => false,
+		2016 => false,
+		2017 => false,
+		2018 => true,
 	];
 
 	/** @var EntityManager @inject */
 	public $em;
+
+	/** @var InvoiceFacade @inject */
+	public $invoiceFacade;
 
 	/** @var PaymentRepository */
 	private $paymentRepo;
@@ -78,6 +91,12 @@ class PaymentFacade extends Object
 		if ($excludeCargo) {
 			$sum -= $this->getForYearCargo($date);
 		}
+
+		$year = $date->format('Y');
+		if (!array_key_exists($year, self::CLEAR_YEARS) || self::CLEAR_YEARS[$year]) {
+			$sum += $this->invoiceFacade->getForYearSum($date);
+		}
+
 		return $sum;
 	}
 

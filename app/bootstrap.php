@@ -6,7 +6,7 @@ $configurator = new Nette\Configurator;
 
 // Enable Nette Debugger for error visualisation & logging
 $configurator->setDebugMode([
-	'94.113.177.5', // Petr - Brno
+	'89.103.90.147', // Petr - Brno
 	'37.221.251.254', // Petr - Svetla n.S.
 	'147.229.204.31', // Kapco 1
 	'213.81.220.67', // Kapco 2

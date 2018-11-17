@@ -110,6 +110,7 @@ class Confession extends BaseEntity
 	{
 		$rates = [
 			'EUR' => [
+				2017 => 26.29, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2017/
 				2016 => 27.04, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2016/
 				2015 => 27.27, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2015/
 				2014 => 27.55, // http://www.kurzy.cz/kurzy-men/jednotny-kurz/2014/
