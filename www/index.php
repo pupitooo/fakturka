@@ -2,7 +2,7 @@
 
 $ips = [
 	'127.0.0.1',
-	'37.221.251.254', // SnS
+	'93.99.190.249', // Francouzská 69
 ];
 
 // Uncomment this line if you must temporarily take down your site for maintenance.

@@ -1,14 +1,9 @@
 <?php
 
 $allowedIPs = [
-    '94.113.177.5', // Petr - Brno
-    '37.221.251.252', // Petr - SnS
-    '188.121.172.183', // Samo
+    '93.99.190.249', // Petr - Brno
     '127.0.0.1',
     '::1',
-    // TMPs
-    '149.62.146.153', // Brno TMP1
-    '94.113.216.110', // Brno TMP2
 ];
 
 if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) || !isset($_SERVER['REMOTE_ADDR']) ||

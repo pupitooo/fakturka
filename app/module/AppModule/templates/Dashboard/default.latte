@@ -13,7 +13,7 @@
 
 	<!-- BEGIN DASHBOARD STATS -->
 	<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-4">
 			<div class="dashboard-stat blue-madison">
 				<div class="visual">
 					<i class="fa fa-inbox fa-icon-medium"></i>
@@ -26,26 +26,45 @@
 						{_'Issued invoices'}
 					</div>
 				</div>
-				<a class="more" href="#">
+				<a class="more" n:href="Invoices:">
 					{_'View all'} <i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
 		</div>
-		<div class="col-lg-6">
+		<div class="col-lg-4">
 			<div class="dashboard-stat red-intense">
 				<div class="visual">
 					<i class="fa fa-money"></i>
 				</div>
 				<div class="details">
 					<div class="number">
+						<small>{if $yearLimitReached}{_'plus'}{/if}</small>
 						{$yearLimitRest|currency}
 					</div>
 					<div class="desc">
 						{_'Rest to limit'} {$yearLimit|currency}
 					</div>
 				</div>
-				<a class="more" href="#">
-					View more <i class="m-icon-swapright m-icon-white"></i>
+				<a class="more" n:href="this">
+					{_'View more'} <i class="m-icon-swapright m-icon-white"></i>
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="dashboard-stat green-meadow">
+				<div class="visual">
+					<i class="fa fa-money"></i>
+				</div>
+				<div class="details">
+					<div class="number">
+						{$extraCharge[$thisYear]|currency}
+					</div>
+					<div class="desc">
+						{_'Extra Charge'}
+					</div>
+				</div>
+				<a class="more" n:href="this">
+					{_'View more'} <i class="m-icon-swapright m-icon-white"></i>
 				</a>
 			</div>
 		</div>
@@ -66,7 +85,10 @@
 						</abbr>
 					</th>
 					<th>{_'Recieved'}</th>
-					<th>{_'Cargo'}</th>
+					<th>
+						{_'Cargo'}
+						<span class="pull-right">{_'Extra charge'}</span>
+					</th>
 					<th>{_'Clear'}</th>
 					<th>{_'Monthly'}</th>
 					<th>{_'Clear monthly'}</th>
@@ -77,6 +99,7 @@
 				{var invoicesRecievedSums => 0}
 				{var sumSums => 0}
 				{var sumCargos => 0}
+				{var sumExtraCharge => 0}
 				{var sumClears => 0}
 				<tbody>
 				<tr n:foreach="$years as $year">
@@ -108,7 +131,9 @@
 					</td>
 					<td>
 						{$cargo[$year]|currency}
+						<span class="pull-right" title="{_'Extra charge'}">{$extraCharge[$year]|currency}</span>
 						{var $sumCargos += $cargo[$year]}
+						{var $sumExtraCharge += $extraCharge[$year]}
 					</td>
 					<td>
 						{$clear[$year]|currency}
@@ -125,7 +150,10 @@
 					<th>{$invoicesSums|currency}</th>
 					<th>{$invoicesRecievedSums|currency}</th>
 					<th>{$sumSums|currency}</th>
-					<th>{$sumCargos|currency}</th>
+					<th>
+						{$sumCargos|currency}
+						<span class="pull-right">{$sumExtraCharge|currency}</span>
+					</th>
 					<th>{$sumClears|currency}</th>
 					<th>{$months ? $sumSums/$sumMonths : $sumSums|currency}</th>
 					<th>{$months ? $sumClears/$sumMonths : $sumClears|currency}</th>

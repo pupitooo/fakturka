@@ -2,6 +2,7 @@
 
 namespace App\Model\Facade;
 
+use App\Model\Entity\Confession;
 use App\Model\Entity\Payment;
 use App\Model\Repository\PaymentRepository;
 use Kdyby\Doctrine\EntityManager;
@@ -106,6 +107,14 @@ class PaymentFacade extends Object
 		$months = $year == 2013 ? 10 : ($year === date('Y') ? date('n') - 1 : 12);
 		$cargoValue = self::CARGOS[$year] * $months;
 		return $cargoValue;
+	}
+
+	public function getExtraCharge(DateTime $date)
+	{
+		$year = $date->format('Y');
+		$invoices = $this->invoiceFacade->getForYear($date, TRUE);
+		$extraChargeValue = Confession::getExtraCharge($invoices, $year);
+		return $extraChargeValue;
 	}
 
 	public function getForMonthCount(DateTime $date)

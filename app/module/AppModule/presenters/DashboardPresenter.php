@@ -32,12 +32,14 @@ class DashboardPresenter extends BasePresenter
 		$recievedInvoices = [];
 		$sum = [];
 		$clear = [];
+		$extraCharge = [];
 		foreach ($years as $year) {
 			$invoices[$year] = $this->invoiceFacade->getForYearSum(new DateTime('1.1.' . $year));
 			$recievedInvoices[$year] = $this->invoiceFacade->getForYearSumForConfession(new DateTime('1.1.' . $year));
 			$sum[$year] = $this->paymentFacade->getForYearSum(new DateTime('1.1.' . $year));
 			$clear[$year] = $this->paymentFacade->getForYearSum(new DateTime('1.1.' . $year), TRUE);
 			$cargo[$year] = $this->paymentFacade->getForYearCargo(new DateTime('1.1.' . $year));
+			$extraCharge[$year] = $this->paymentFacade->getExtraCharge(new DateTime('1.1.' . $year));
 		}
 
 		$this->template->thisYear = $thisYear;
@@ -49,11 +51,15 @@ class DashboardPresenter extends BasePresenter
 		$this->template->sum = $sum;
 		$this->template->clear = $clear;
 		$this->template->cargo = $cargo;
+		$this->template->extraCharge = $extraCharge;
 
 		$invoiceYearSum = $this->invoiceFacade->getForYearSum(new DateTime(), FALSE);
+		$yearLimit = $this->invoiceFacade->getYearLimit();
+		$yearLimitRest = $yearLimit - $invoiceYearSum;
 		$this->template->invoiceYearSum = $invoiceYearSum;
-		$this->template->yearLimit = $this->invoiceFacade->getYearLimit();
-		$this->template->yearLimitRest = $this->template->yearLimit - $invoiceYearSum;
+		$this->template->yearLimit = $yearLimit;
+		$this->template->yearLimitRest = \abs($yearLimitRest);
+		$this->template->yearLimitReached = $yearLimitRest < 0;
 	}
 
 }

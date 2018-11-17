@@ -167,7 +167,7 @@ class InvoiceFacade extends Object
 	 */
 	public function getYearLimit()
 	{
-		$rentBase = Confession::YEAR_RENT * (1 - Confession::RENT_COSTS_PERCENTAGE);
+		$rentBase = Confession::DEFAULT_YEAR_RENT * (1 - Confession::RENT_COSTS_PERCENTAGE);
 		$x = Confession::TAXPAYER_DISCOUNT / Confession::TAX_PERCENTAGE;
 		$ceilingX = round($x / 100) * 100;
 		$baseWithoutCosts = $ceilingX - $rentBase;
